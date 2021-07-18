@@ -7,21 +7,35 @@
 
 body{
     font-family: sans-serif;
+    
+    a{
+        text-decoration: none;
+    }
 }
 
 .top-header {
     
     .container{
-        
+        width: 90%;
+        margin: auto;
     }   
 
     ul.top-nav-list{
         display: flex;
-
-        li{
-            margin: 10px;
-        }
+        
     }
+
+    .item{
+        margin: 10px;
+    }
+    .item-first{
+        margin-right: auto;
+    }
+    .item-last{
+        margin-left: auto;
+    }
+
+    
 }
 
 .main-section .container{

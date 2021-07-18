@@ -8,12 +8,25 @@
 body {
   font-family: sans-serif;
 }
+body a {
+  text-decoration: none;
+}
 
+.top-header .container {
+  width: 90%;
+  margin: auto;
+}
 .top-header ul.top-nav-list {
   display: flex;
 }
-.top-header ul.top-nav-list li {
+.top-header .item {
   margin: 10px;
+}
+.top-header .item-first {
+  margin-right: auto;
+}
+.top-header .item-last {
+  margin-left: auto;
 }
 
 .main-section .container {
