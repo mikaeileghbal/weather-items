@@ -23,6 +23,7 @@ body {
   width: 672px;
   height: 364px;
   background-color: antiquewhite;
+  box-shadow: rgba(0, 0, 0, 0.5) 4px 4px 10px;
 }
 .inner .row {
   width: 100%;
