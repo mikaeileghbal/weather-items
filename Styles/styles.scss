@@ -1,0 +1,84 @@
+*, *:before, *:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: aliceblue;
+}
+
+.inner{
+    display: flex;
+    flex-flow: column;
+    width: 672px;
+    height: 364px;
+    background-color: antiquewhite;
+    
+    .row {
+        //background-color: aquamarine;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+        //border: 1px solid gray;
+
+        .w-day{
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 80px;
+            border-radius: 10px;
+            cursor: pointer;
+            //height: 92px;
+            font-size: 14px;
+            text-align: center;
+            //background-color: yellowgreen;
+            margin: 0px 7px 0px 0px;
+            padding: 5px;
+
+
+            .w-day-name{
+                font-size: 16px;
+                width: 100%;
+            }
+
+            .w-icon{
+                width: 100%;
+            }
+            
+            .icon{
+                width: 50px;
+            }
+
+            .w-temp{
+                display: flex;
+                justify-content: space-around;
+                padding: 2px;
+                width: 100%;
+            }
+
+            &:hover{
+                background-color: rgba(255,255,255,0.5);
+            }
+        }
+        
+    }
+
+
+}
+
+
+
+
