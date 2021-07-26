@@ -8,7 +8,7 @@ const container = document.createElement("div");
 container.setAttribute("class", "container");
 
 const text = document.createElement("p");
-text.textContent = "Weather forecast for the next 7 days";
+//text.textContent = "Weather forecast for the next 7 days";
 container.appendChild(text);
 
 app.appendChild(logo);
