@@ -13,30 +13,65 @@ body{
     }
 }
 
+// Header menu styles
+// ============================
 .top-header {
-    
+    background-color: rgb(200,200,200);
+
     .container{
         width: 90%;
         margin: auto;
+        padding: 2px;
+        
     }   
 
     ul.top-nav-list{
         display: flex;
-        
+        align-items: center;
+        padding: 10px;
+        //background-color: cadetblue;
     }
 
     .item{
-        margin: 10px;
+        margin: 0px;
+        //`background-color: burlywood;
     }
     .item-first{
         margin-right: auto;
+        
     }
     .item-last{
         margin-left: auto;
+        text-align: left;
+    }
+
+    .logo{
+        color: black;
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+
+    a.link{
+        display: block;
+        font-size: 18px; 
+        color: blue;
+        padding: 6px 30px;
+        //background-color: brown;
+
+        &:hover{
+            background-color: aliceblue;
+            padding-top: -2px;
+            border-radius: 20px;
+            transition: background-color 0.4s ease;
+        }
     }
     
 }
 
+
+// Weather presentation section styles
+// ====================================
 .main-section .container{
     display: flex;
     justify-content: center;
