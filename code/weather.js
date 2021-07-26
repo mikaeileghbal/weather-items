@@ -11,7 +11,9 @@ request.onload = function () {
     var data = JSON.parse(this.response);
 
     if (request.status < 400) {
-        console.log("Error!");
+        data.forEach((element) => {
+            console.log(element);
+        });
     }
     else {
         console.log("Error!");

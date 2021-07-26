@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;;
     list-style: none;
+    outline: none;
 }
 
 body{
@@ -158,12 +159,14 @@ body{
     width: 40em;
     border-radius: 20px;
     box-shadow: rgba(0,0,0,0.2) 0 0 10px;
+    
     &:focus{
         border-radius: 20px;
         border: none;
         border-radius: 20px;
         background-color:white;
     }
+  
 }
 
 .btn{
