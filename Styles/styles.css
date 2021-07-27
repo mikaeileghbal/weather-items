@@ -15,13 +15,13 @@
 
 body {
   font-family: "Rubik", sans-serif;
+  line-height: 1.2;
 }
 body a {
   text-decoration: none;
 }
 
 body > .container {
-  max-width: 1048px;
   margin: auto;
 }
 
@@ -32,6 +32,7 @@ body > .container {
   width: 100%;
   margin: 0.5em auto;
   border-bottom: 1px solid #bebebe;
+  padding: 0 1.5em;
 }
 .top-header ul.top-nav-list {
   display: flex;
@@ -83,13 +84,14 @@ body > .container {
 }
 
 .main-section {
-  padding: 1.5em 0;
+  padding: 1.5em;
 }
 .main-section > .container {
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 1.1em;
 }
 .main-section > .container > .input-row {
   width: 100%;
@@ -182,4 +184,57 @@ body > .container {
 .btn:hover {
   background-color: #4f80cf;
   transition: background-color 150ms ease;
+}
+
+footer .container {
+  background-color: #f2f2f2;
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+footer .social {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+footer .social ul {
+  display: flex;
+  width: 100%;
+}
+footer .social li {
+  flex: 1;
+  border: 2px solid #2d63b9;
+  background-color: #2d63b9;
+  padding: 0.2em;
+  border-radius: 50%;
+  text-align: center;
+  width: 34px;
+  transition: background-color 150ms ease;
+}
+footer .social li:hover {
+  background-color: #4f80cf;
+  transition: background-color 150ms ease;
+}
+footer .social li:not(:last-child) {
+  margin-right: 0.5em;
+}
+footer .social a {
+  font-size: 1.2em;
+  color: white;
+}
+footer .copyright {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+footer .copyright a {
+  color: black;
+  font-size: 1em;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+footer .copyright a:hover {
+  text-decoration: underline;
 }/*# sourceMappingURL=styles.css.map */
