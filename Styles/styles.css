@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap");
 :root {
   box-sizing: border-box;
 }
@@ -13,7 +14,7 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 body a {
   text-decoration: none;
@@ -35,6 +36,7 @@ body > .container {
 .top-header ul.top-nav-list {
   display: flex;
   align-items: center;
+  align-content: center;
   padding: 10px;
 }
 .top-header .item {
@@ -49,14 +51,14 @@ body > .container {
 }
 .top-header .logo {
   color: #2d63b9;
-  font-size: 20px;
+  font-size: 1.4rem;
   font-weight: 800;
 }
 .top-header a.link:not(.last) {
   display: block;
-  font-size: 14px;
+  font-size: 1rem;
   color: black;
-  padding: 0.6em 2em;
+  padding: 0.5em 2em;
 }
 .top-header a.link:not(.last):hover {
   background-color: aliceblue;
@@ -148,8 +150,9 @@ body > .container {
 .input {
   border: none;
   padding: 1em;
-  font-size: 16px;
-  color: blue;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: inherit;
   background-color: rgba(255, 255, 255, 0.5);
   width: 600px;
   border-radius: 50px;
@@ -166,7 +169,9 @@ body > .container {
 .btn {
   border: 2px solid #2d63b9;
   padding: 0.6em 1.5em;
-  font-size: 14px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
   background-color: #2d63b9;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.4) 0 0 10px;

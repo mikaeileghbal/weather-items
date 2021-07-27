@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
 :root{
     box-sizing: border-box;
@@ -14,7 +15,7 @@
 }
 
 body{
-    font-family: sans-serif;
+    font-family: 'Rubik', sans-serif;
     
     a{
         text-decoration: none;
@@ -40,6 +41,7 @@ body> .container{
     ul.top-nav-list{
         display: flex;
         align-items: center;
+        align-content: center;
         padding: 10px;
         //background-color: cadetblue;
     }
@@ -60,15 +62,15 @@ body> .container{
     
     .logo{
         color: rgb(45, 99, 185);
-        font-size: 20px;
+        font-size: 1.4rem;
         font-weight: 800;
     }
 
     a.link:not(.last){
         display: block;
-        font-size: 14px; 
+        font-size: 1rem; 
         color: black;
-        padding: 0.6em 2em;
+        padding: 0.5em 2em;
         //background-color: brown;
 
         &:hover{
@@ -193,8 +195,10 @@ body> .container{
 .input{
     border: none;
     padding: 1em;
-    font-size: 16px;
-    color: blue;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: inherit;
+    
     background-color: rgba(255,255,255,0.5);
     width:600px;
     border-radius: 50px;
@@ -213,7 +217,9 @@ body> .container{
 .btn{
     border: 2px solid rgb(45, 99, 185);
     padding: 0.6em 1.5em;
-    font-size: 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
     background-color: rgb(45, 99, 185);
     color: white;
     box-shadow: rgba(0,0,0,0.4) 0 0 10px;
