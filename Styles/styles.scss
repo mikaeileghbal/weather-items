@@ -1,7 +1,14 @@
-*, *:before, *:after{
+
+:root{
+    box-sizing: border-box;
+}
+
+*, 
+::after, 
+::after{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;;
+    box-sizing: inherit;
     list-style: none;
     outline: none;
 }
@@ -14,16 +21,20 @@ body{
     }
 }
 
+body> .container{
+    max-width: 1048px;
+    margin: auto;
+}
+
 // Header menu styles
 // ============================
 .top-header {
     background-color: rgb(255,255,255);
 
-    .container{
-        width: 90%;
-        margin: auto;
-        padding: 2px;
-        
+     .container{
+        width: 100%;
+        margin: 0.5em auto;
+        border-bottom: 1px solid rgb(190,190,190);
     }   
 
     ul.top-nav-list{
@@ -46,41 +57,77 @@ body{
         text-align: left;
     }
 
+    
     .logo{
         color: rgb(45, 99, 185);
         font-size: 20px;
         font-weight: 800;
     }
 
-
-    a.link{
+    a.link:not(.last){
         display: block;
-        font-size: 18px; 
-        color: blue;
-        padding: 0.5em 2em;
+        font-size: 14px; 
+        color: black;
+        padding: 0.6em 2em;
         //background-color: brown;
 
         &:hover{
             background-color: aliceblue;
-            padding-top: -2px;
             border-radius: 20px;
             transition: background-color 0.4s ease;
         }
     }
+
+    .burger{
+        span{
+            display: block;
+            position: relative;
+            width: 25px;
+            height: 2px;
+            margin: 4px;
+            background-color: #7a7a7a;
+            z-index: 1000;
+            //transition: all 0.5s ease-out;
+            transition: transform .45s cubic-bezier(.43,.77,.15,1.5);
+            
+        }
+        &:hover>:first-child{
+            transform: translate(0, -3px);
+            //transition: transform .45s cubic-bezier(.43,.77,.15,1.5);
+        }
+        &:hover>:last-child{
+            transform: translate(0,3px);
+            //transition: transform .45s cubic-bezier(.43,.77,.15,1.5);
+        }
+    }
+
     
 }
 
 
 // Weather presentation section styles
 // ====================================
-.main-section>.row{
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: aliceblue;
+.main-section{
+    padding: 1.5em 0;
+    //background-color: aquamarine;
+
+    > .container{
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        > .input-row{
+            width: 100%;
+            //background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5em;
+        }
+    }
+
+    
 }
 
 .inner{
@@ -91,7 +138,7 @@ body{
     background-color: antiquewhite;
     box-shadow: rgba(0,0,0,0.5) 4px 4px 10px;
     
-    .row {
+    > .row {
         //background-color: aquamarine;
         width: 100%;
         display: flex;
@@ -140,49 +187,44 @@ body{
                 background-color: rgba(255,255,255,0.5);
             }
         }
-        
     }
-
-
-}
-
-.conatiner-input{
-    width: 100%;
 }
 
 .input{
     border: none;
-    padding: 0.8em;
+    padding: 1em;
     font-size: 16px;
     color: blue;
     background-color: rgba(255,255,255,0.5);
-    width: 40em;
-    border-radius: 20px;
+    width:600px;
+    border-radius: 50px;
     box-shadow: rgba(0,0,0,0.2) 0 0 10px;
+    margin-right: 0.5em;
     
     &:focus{
-        border-radius: 20px;
-        border: none;
-        border-radius: 20px;
         background-color:white;
     }
-  
+
+    &:hover{
+        box-shadow: rgba(0,0,0,0.2) 1px 1px 15px;
+    }
 }
 
 .btn{
-    border: 1px solid rgb(197, 191, 191);
-    padding: 0.5em 1em;
+    border: 2px solid rgb(45, 99, 185);
+    padding: 0.6em 1.5em;
     font-size: 14px;
     background-color: rgb(45, 99, 185);
     color: white;
     box-shadow: rgba(0,0,0,0.4) 0 0 10px;
     border-radius: 20px;
+    //border-top-left-radius: -20px;
     transition: background-color 100ms ease;
-    
+    text-transform: uppercase;
     
     &:hover{
-        background-color: rgb(236, 56, 56);
-        transition: background-color 100ms ease;
+        background-color: rgb(79, 128, 207);
+        transition: background-color 150ms ease;
     }
 }
 
