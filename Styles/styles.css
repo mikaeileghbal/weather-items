@@ -22,6 +22,7 @@ body a {
 }
 
 body > .container {
+  min-width: 250px;
   margin: auto;
 }
 
@@ -94,12 +95,12 @@ body > .container {
   margin-bottom: 1.1em;
 }
 .main-section > .container > .input-row {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.5em;
+  padding: 1.5em auto;
 }
 
 .input {
@@ -190,7 +191,7 @@ body > .container {
 footer .container {
   background-color: #f2f2f2;
   width: 100%;
-  padding: 1em 4em;
+  padding: 1em 0.1em;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -243,11 +244,23 @@ footer .social a {
 }
 
 @media only screen and (min-width: 768px) {
+  .top-header a.link:not(.last) {
+    display: block;
+  }
+  .top-header .burger {
+    display: none;
+  }
+
+  .main-section > .container > .input-row {
+    width: 650px;
+  }
+
   footer .container {
     flex-flow: row;
   }
 
   .inner {
+    width: 650px;
     height: 364px;
   }
   .inner > .row {
@@ -267,15 +280,15 @@ footer .social a {
   }
 }
 @media only screen and (min-width: 481px) {
-  .top-header a.link:not(.last) {
-    display: block;
-  }
-
   .main-section > .container > .input-row {
     flex-direction: row;
   }
 
   .input {
     margin-bottom: 0em;
+  }
+
+  footer .container {
+    padding: 1em 4em;
   }
 }/*# sourceMappingURL=styles.css.map */
