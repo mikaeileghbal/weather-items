@@ -68,10 +68,12 @@ body> .container{
     }
 
     a.link:not(.last){
-        display: block;
+        display: none;
         font-size: 1rem; 
         color: black;
-        padding: 0.5em 2em;
+        //media min 768 TODO
+        //padding: 0.5em 2em;
+        padding: 0.5em 1em;
         //background-color: brown;
 
         &:hover{
@@ -111,7 +113,7 @@ body> .container{
 // Weather presentation section styles
 // ====================================
 .main-section{
-    padding: 1.5em;
+    padding: 1.5em 1.5em 5em 1.5em;
     //background-color: aquamarine;
 
     > .container{
@@ -122,90 +124,33 @@ body> .container{
         margin-bottom: 1.1em;
 
         > .input-row{
-            width: 100%;
+            width: 90%;
             //background-color: black;
             display: flex;
+            //media min 481 TODO
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 1.5em;
-        }
-    }
-
-    
-}
-
-.inner{
-    display: flex;
-    flex-flow: column;
-    width: 672px;
-    height: 364px;
-    background-color: antiquewhite;
-    box-shadow: rgba(0,0,0,0.5) 4px 4px 10px;
-    
-    > .row {
-        //background-color: aquamarine;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 150px;
-        //border: 1px solid gray;
-
-        .w-day{
-            display: flex;
-            flex-flow: column;
-            justify-content: space-between;
-            align-items: center;
-            width: 80px;
-            border-radius: 10px;
-            cursor: pointer;
-            //height: 92px;
-            font-size: 14px;
-            text-align: center;
-            //background-color: yellowgreen;
-            margin: 0px 7px 0px 0px;
-            padding: 5px;
-
-
-            .w-day-name{
-                font-size: 16px;
-                width: 100%;
-            }
-
-            .w-icon{
-                width: 100%;
-            }
-            
-            .icon{
-                width: 50px;
-            }
-
-            .w-temp{
-                display: flex;
-                justify-content: space-around;
-                padding: 2px;
-                width: 100%;
-            }
-
-            &:hover{
-                background-color: rgba(255,255,255,0.5);
-            }
         }
     }
 }
 
 .input{
     border: none;
-    padding: 1em;
     font-size: 1rem;
+    padding: 1em;
+    width: 100%;
+        
     font-weight: 400;
     font-family: inherit;
     
     background-color: rgba(255,255,255,0.5);
-    width:600px;
+    //width:600px;
     border-radius: 50px;
     box-shadow: rgba(0,0,0,0.2) 0 0 10px;
     margin-right: 0.5em;
+    margin-bottom: 0.6em;
     
     &:focus{
         background-color:white;
@@ -236,30 +181,126 @@ body> .container{
     }
 }
 
+.inner{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    //height: 364px;
+    background-color: antiquewhite;
+    box-shadow: rgba(0,0,0,0.5) 4px 4px 10px;
+    
+    > .row {
+        //background-color: aquamarine;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // media min 768 TODO -------------------------------------------
+        //flex:direction : row;
+        flex-direction: column;
+        //height: 150px;
+        //border: 1px solid gray;
+
+        .w-day{
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+            align-items: center;
+            // media min 768 TODO----------------------------------
+            //width: 80px;
+            //border-radius: 10px;
+            width:100%;
+            
+            cursor: pointer;
+            //height: 92px;
+            font-size: 14px;
+            text-align: center;
+            //background-color: yellowgreen;
+            margin: 0px 7px 0px 0px;
+            padding: 5px;
+            border-bottom: 1px solid #dad5d5;
+
+
+            .w-day-name{
+                font-size: 16px;
+                width: 100%;
+            }
+
+            .w-icon{
+                width: 100%;
+            }
+            
+            .icon{
+                width: 50px;
+            }
+
+            .w-temp{
+                display: flex;
+                
+                justify-content: space-around;
+                padding: 2px;
+                //media min 768 TODO -------------------------
+                //width: 100%;
+                width: 20%;
+            }
+
+            &:hover{
+                background-color: rgba(255,255,255,0.5);
+            }
+        }
+    }
+}
+
+
+
 
 
 footer{
     .container{
         background-color: #f2f2f2;
         width: 100%;
-        padding: 1em;
+        padding: 1em 4em;
         display: flex;
         flex-flow: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        
     }
+
+    .copyright{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        //justify-content: space-between;
+        //flex-direction: column;
+
+        a{
+            color: black;
+            font-size: 14px;
+            font-weight: 200;
+            margin-bottom: 0.5em;
+            margin-left: 1em;
+
+            &:hover{
+                text-decoration: underline;
+            }
+            
+        }
+    }
+
     .social{
+        flex: 1;
+        justify-content: flex-end;
         margin-top: 0.5em;
         margin-bottom: 0.5em;
         
         ul{
             display: flex;
-            width: 100%;
+            justify-content: flex-end;
+            //width: 100%;
             
         }
         li{
-            flex: 1;
+            
             border: 2px solid rgb(45, 99, 185);
             background-color: rgb(45, 99, 185);
             padding: 0.2em;
@@ -279,30 +320,70 @@ footer{
         a{
             font-size: 1.2em;
             color: white;
-
-           
         }
+    }
+   
+}
 
+@media only screen and (min-width:768px)
+{
+    footer{
+        .container{
+            flex-flow: row;
+        }
     }
 
-    .copyright{
+    .inner{
         
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+        height: 364px;
         
-
-        a{
-            color: black;
-            font-size: 1em;
-            font-weight: 400;
-            margin-bottom: 0.5em;
-
-            &:hover{
-                text-decoration: underline;
-            }
-
+        > .row {
+            // media min 768 TODO -------------------------------------------
+            flex-direction: row;
+            height: 150px;
             
+            
+    
+            .w-day{
+                // media min 768 TODO----------------------------------
+                width: 80px;
+                border-radius: 10px;
+                border: none;
+                
+                .w-temp{
+                    //media min 768 TODO -------------------------
+                    width: 100%;
+                    //width: 20%;
+                }
+    
+                &:hover{
+                    background-color: rgba(255,255,255,0.5);
+                }
+            }
         }
     }
+ 
+}
+
+@media only screen and (min-width:481px)
+{
+    .top-header{
+
+        a.link:not(.last){
+            display : block
+        }
+    }
+
+    .main-section{
+        > .container{
+            > .input-row{
+                flex-direction: row;
+            }    
+        }
+    }
+
+    .input{
+        margin-bottom: 0em;
+    }
+
 }
