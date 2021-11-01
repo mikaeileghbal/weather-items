@@ -20,9 +20,9 @@
                 <nav id="top-nav">
                     <ul class="top-nav-list">
                         <li class="item item-first"><a class="logo" href="">Weather</a>
-                        <li class="item"><a class="link" href="">Contact</a>
-                        <li class="item"><a class="link" href="">Portfolio</a>
-                        <li class="item"><a class="link" href="">About</a>
+                        <li class="item"><a class="link" href="">Today</a>
+                        <li class="item"><a class="link" href="">Tomorrow</a>
+                        <li class="item"><a class="link" href="">7 Days</a>
                         <li class="item item-last"><a class="link last" href="">
                                 <div class="burger">
                                     <span></span>
@@ -43,7 +43,7 @@
 
                 <div class="input-row">
                     <input id="city" name="city" class="input" placeholder="city">
-                    <input class="btn" type="submit" value="Get">
+                    <input class="btn" type="submit" value="Get" name="get" id="getWeatherBtn">
                 </div>
 
 
@@ -57,7 +57,9 @@
 
                 <div class="inner">
                     <div class="row">
-
+                        <span id="currentCity"></span>
+                        <span id="currentTemp"></span>
+                        <span id="currentDescription"></span>
                     </div>
                     <div class="row">
 
