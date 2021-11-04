@@ -13,47 +13,29 @@
 
 <body>
 
-    <div class="container">
+    
 
-        <header class="top-header">
-            <div class="container">
-                <nav id="top-nav">
-                    <ul class="top-nav-list">
-                        <li class="item item-first"><a class="logo" href="">Weather</a>
-                        <li class="item"><a class="link" href="">Today</a>
-                        <li class="item"><a class="link" href="">Tomorrow</a>
-                        <li class="item"><a class="link" href="">7 Days</a>
-                        <li class="item item-last"><a class="link last" href="">
-                                <div class="burger">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </a>
+        <header class="header">
+            <div class="header__container">
+                <a class="logo" href="">Weather</a>
+                <form id="search">
+                    <div class="search__input">
+                            <input id="city" name="city" class="input" placeholder="Search for location" required>
+                            <button class="btn" type="submit" value="Get" name="get" id="getWeatherBtn"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+                <nav id="header__nav">
+                    <ul class="header__nav__list">
+                        <li class="header__item"><a class="link" href="">Helsinki, Uusima...</a></li>
+                        <li class="header__item"><a class="link" href="">Tomorrow</a></li>
+                        <li class="header__item"><a class="link" href="">7 Days</a></li>
+                        <li class="header__item last--item"><button class="button--unit"><span>&deg;F</span><span class="active">&deg;C</span><span class="button__slide"></span></button></li>
                     </ul>
                 </nav>
             </div>
         </header>
 
         <section class="main-section">
-
-
-
-            <div class="container">
-
-                <div class="input-row">
-                    <input id="city" name="city" class="input" placeholder="city">
-                    <input class="btn" type="submit" value="Get" name="get" id="getWeatherBtn">
-                </div>
-
-
-                <!-- Call api and create elements JSON data STARTS -->
-                <section id="root">
-
-                </section>
-                <!-- Call api and create elements JSON data ENDS -->
-
-
 
                 <div class="inner">
                     <div class="row">
@@ -205,8 +187,8 @@
 
                 </div>
 
-            </div>
         </section>
+
         <footer>
             <div class="container">
                 <div class="copyright">
@@ -232,7 +214,7 @@
             </div>
         </footer>
 
-    </div>
+    
 
     <script src="code/app.js" defer></script>
     <script src="code/weather.js" defer></script>
