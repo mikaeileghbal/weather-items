@@ -26,10 +26,10 @@
                 </form>
                 <nav id="header__nav">
                     <ul class="header__nav__list">
-                        <li class="header__item"><a class="link" href="">Helsinki, Uusima...</a></li>
+                        <!-- <li class="header__item"><a class="link" href="">Helsinki, Uusima...</a></li>
                         <li class="header__item"><a class="link" href="">Tomorrow</a></li>
-                        <li class="header__item"><a class="link" href="">7 Days</a></li>
-                        <li class="header__item last--item"><button class="button--unit"><span>&deg;F</span><span class="active">&deg;C</span><span class="button__slide"></span></button></li>
+                        <li class="header__item"><a class="link" href="">7 Days</a></li> -->
+                        <li class="header__item last--item"><button class="button--unit"><span class="F">&deg;F</span><span class="C active">&deg;C</span><span class="button__slide"></span></button></li>
                     </ul>
                 </nav>
             </div>
@@ -38,17 +38,22 @@
         <section class="main-section">
 
                 <div class="inner">
-                    <div class="row">
-                        <span id="currentCity"></span>
-                        <span id="currentTemp"></span>
-                        <span id="currentDescription"></span>
+                    <span id="currentCity">City</span>
+                    <div class="row current">
+                        <h1>current weather</h1>
+                        <div class="time">1:46 pm</div>
+                        <div class="temp__wrapper">
+                            <div class="icon__wrapper">
+                                <img class="icon current-icon" src="images/sun.png" alt="image" />
+                                <span id="currentTemp"></span>
+                            </div>
+                            <span id="currentDescription"></span>
+                        </div>
                     </div>
-                    <div class="row">
-
-                    </div>
-
+                    
                     <!-- weather dayli status row begins -->
-                    <div class="row">
+                    <div class="row daily">
+
                         <!-- sunday status begins-->
                         <div class="w-day">
                             <div class="w-day-name">
@@ -180,7 +185,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- saturday status ends-->
+                        <!-- saturday status ends -->
 
                     </div>
                     <!-- weather dayli status row begins -->
@@ -218,6 +223,7 @@
 
     <script src="code/app.js" defer></script>
     <script src="code/weather.js" defer></script>
+
 
 </body>
 
