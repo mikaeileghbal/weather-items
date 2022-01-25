@@ -240,7 +240,7 @@ body a {
   font-size: 1rem;
 }
 .inner > .row .w-day:hover {
-  background-color: rgba(66, 158, 194, 0.2);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
 }
 .inner .current {
   background-color: #445472;
