@@ -1,15 +1,12 @@
 const weatherApp = (function () {
-  const currentTemp = document.getElementById("currentTemp");
-  const currentDescription = document.getElementById("currentDescription");
-  const currentCity = document.getElementById("currentCity");
+  const dailyrow = document.querySelector(".daily");
+  let unit = "metric";
+  let today = new Date().getDay();
+  let city = "frankfurt";
+
   const getWeatherBtn = document.getElementById("getWeatherBtn");
   const cityInput = document.getElementById("city");
   const buttonUnit = document.querySelector(".button--unit");
-  let currentIcon = document.querySelector(".current-icon");
-  let unit = "metric";
-  const dailyrow = document.querySelector(".daily");
-  let today = new Date().getDay();
-  let city = "frankfurt";
 
   window.addEventListener("DOMContentLoaded", (event) => {
     callWeather(unit);
@@ -39,13 +36,22 @@ const weatherApp = (function () {
   });
 
   function callWeather(un) {
-    const weather = new Weather("frankfurt");
+    console.log("called weather");
+    const weather = new Weather();
     weather.unit = un;
+    weather.city = city;
     weather.getCurrentWeather(displayWeather);
   }
   // const WEATHERR_ID = "296730df19d32c45959f5b8635c7e228";
   function displayWeather(jsonData) {
+    console.log("Display: ", jsonData);
     if (jsonData) {
+      const currentTemp = document.getElementById("currentTemp");
+      const currentDescription = document.getElementById("currentDescription");
+      const currentCity = document.getElementById("currentCity");
+
+      let currentIcon = document.querySelector(".current-icon");
+
       console.log("outer callback: ", jsonData);
       console.log(jsonData.current.temp);
       currentCity.textContent = city; //jsonData.name;
@@ -61,7 +67,6 @@ const weatherApp = (function () {
   }
 
   function fillDailyWeatherItems(daily) {
-    console.log(daily[0]);
     const daysCount = 7;
     dailyrow.innerHTML = "";
     console.log("display called");
