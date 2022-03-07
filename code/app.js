@@ -46,6 +46,7 @@ const weatherApp = (function () {
   }
 
   function displayWeather(jsonData) {
+    console.log("Display: ", jsonData);
     if (jsonData) {
       let currentIcon = document.querySelector(".current-icon");
       const currentTemp = document.getElementById("currentTemp");
