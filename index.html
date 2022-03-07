@@ -15,42 +15,52 @@
 
   <body>
     <header class="header">
+      <div class="topnav">
+        <div class="container">
+          <a class="logo" href="">Weather</a>
+          <a class="top-link" href="#">home</a>
+          <a class="top-link" href="#">about</a>
+          <a class="top-link" href="#">contact</a>
+          <a class="top-link" href="#">portfolio</a>
+        </div>
+      </div>
       <div class="header__container">
-        <a class="logo" href="">Weather</a>
-        <form id="search">
-          <div class="search__input">
-            <input
-              id="city"
-              name="city"
-              class="input"
-              placeholder="Search for location"
-              required
-            />
-            <button
-              class="btn"
-              type="submit"
-              value="Get"
-              name="get"
-              id="getWeatherBtn"
-            >
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
-        </form>
-        <nav id="header__nav">
-          <ul class="header__nav__list">
-            <!-- <li class="header__item"><a class="link" href="">Helsinki, Uusima...</a></li>
+        <div class="wrapper">
+          <form id="search">
+            <div class="search__input">
+              <input
+                id="city"
+                name="city"
+                class="input"
+                placeholder="Search for location"
+                required
+              />
+              <button
+                class="btn"
+                type="submit"
+                value="Get"
+                name="get"
+                id="getWeatherBtn"
+              >
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </form>
+          <nav id="header__nav">
+            <ul class="header__nav__list">
+              <!-- <li class="header__item"><a class="link" href="">Helsinki, Uusima...</a></li>
                         <li class="header__item"><a class="link" href="">Tomorrow</a></li>
                         <li class="header__item"><a class="link" href="">7 Days</a></li> -->
-            <li class="header__item last--item">
-              <button class="button--unit">
-                <span class="F">&deg;F</span>
-                <span class="C active">&deg;C</span>
-                <span class="button__slide"></span>
-              </button>
-            </li>
-          </ul>
-        </nav>
+              <li class="header__item last--item">
+                <button class="button--unit">
+                  <span class="F">&deg;F</span>
+                  <span class="C active">&deg;C</span>
+                  <span class="button__slide"></span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
 

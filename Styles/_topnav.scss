@@ -1,0 +1,26 @@
+.topnav {
+  width: 100%;
+  padding: 80px 0 20px;
+  background-color: white;
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+}
+
+.logo {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.top-link {
+  margin: 1em;
+  padding: 2px;
+
+  &:hover {
+    border-bottom: 2px solid #ddd;
+  }
+}

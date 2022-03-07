@@ -1,4 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap");
+.topnav {
+  width: 100%;
+  padding: 80px 0 20px;
+  background-color: white;
+}
+
+.topnav .container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.top-link {
+  margin: 1em;
+  padding: 2px;
+}
+
+.top-link:hover {
+  border-bottom: 2px solid #ddd;
+}
+
 :root {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -18,7 +45,8 @@
 body {
   font-family: "Rubik", sans-serif;
   line-height: 1.2;
-  background-color: #3d4d6d;
+  scroll-behavior: smooth;
+  background-color: #204c8c;
 }
 
 body a {
@@ -26,17 +54,23 @@ body a {
 }
 
 .header {
-  background-color: #54617a;
+  position: fixed;
+  background-color: white;
   width: 100%;
   margin: 0;
-  padding: 0 1.5em;
+  padding: 0 0;
   /* Change the white to any color */
 }
 
 .header .header__container {
-  max-width: 1080px;
+  background-color: #325b8f;
   margin: 0 auto;
   padding: 0.5em 0em;
+}
+
+.header .wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,14 +102,6 @@ body a {
 
 .header .last--item {
   margin-left: auto;
-}
-
-.header .logo {
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .header a.link:not(.last) {
@@ -124,8 +150,9 @@ body a {
 }
 
 .header .search__input {
+  width: 300px;
   margin-left: 1em;
-  border-radius: 25px;
+  border-radius: 16px;
   background-color: #429ec2;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -136,7 +163,7 @@ body a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0.1em 0.9em;
+  padding: 0em 1.5em 0em 1em;
   line-height: 0.8em;
 }
 
@@ -153,7 +180,7 @@ body a {
   border: none;
   padding: 0.7em 0em 0.5em;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 400;
   font-family: inherit;
   background-color: inherit;
   width: 100%;
@@ -376,7 +403,9 @@ body a {
 }
 
 .inner .current {
-  background-color: #445472;
+  background-color: #154182;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#154182), color-stop(#154182), to(#aeb7d4));
+  background-image: linear-gradient(to top right, #154182, #154182, #aeb7d4);
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -447,7 +476,7 @@ body a {
 
 footer {
   width: 100%;
-  background-color: #ccc;
+  background-color: white;
 }
 
 footer .container {
