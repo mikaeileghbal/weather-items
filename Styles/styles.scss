@@ -112,7 +112,7 @@ body {
 
   .search__input {
     width: 300px;
-    margin-left: 1em;
+    margin-left: 0em;
     border-radius: 16px;
     background-color: $accent;
     display: flex;
@@ -140,7 +140,7 @@ body {
     font-family: inherit;
     background-color: inherit;
     width: 100%;
-    color: white;
+    color: silver;
 
     //margin-right: 0.5em;
 
@@ -211,6 +211,7 @@ body {
 // ================================================
 .main-section {
   padding: 1.5em;
+  padding-top: 200px;
   width: 100%;
 
   > .container {
@@ -306,29 +307,32 @@ body {
 
   .current {
     background-color: $back-dark;
-    background-image: linear-gradient(
-      to top right,
-      $back-dark,
-      $back-dark,
-      $back-light
-    );
+
     color: white;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 2em 1em;
+    padding: 1.1em 1em;
     border-radius: 10px;
 
     h1 {
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: 500;
       text-transform: uppercase;
     }
 
+    .time {
+      margin: 0;
+      margin-top: -18px;
+      font-weight: 400;
+      font-size: 12px;
+    }
+
     .icon {
       width: 100px;
-      margin: 2em 0;
+      margin: 0em 0;
+      padding: 0;
     }
 
     .temp__wrapper {
@@ -349,7 +353,15 @@ body {
       align-items: center;
 
       #currentTemp {
-        font-size: 3rem;
+        font-size: 4.2rem;
+      }
+      #currentTempWrapper {
+        display: flex;
+      }
+      #degree {
+        display: inline-block;
+        margin-top: 0.5em;
+        font-size: 1.8em;
       }
     }
   }
@@ -357,7 +369,7 @@ body {
 
 #currentCity {
   text-transform: capitalize;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 footer {

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap");
 .topnav {
   width: 100%;
-  padding: 80px 0 20px;
+  padding: 15px 0 20px;
   background-color: white;
 }
 
@@ -10,20 +10,31 @@
   margin: 0 auto;
 }
 
+h1 {
+  margin-bottom: 20px;
+}
+
 .logo {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  color: #429ec2;
+  text-transform: capitalize;
+  letter-spacing: 0px;
 }
 
 .top-link {
-  margin: 1em;
   padding: 2px;
+  text-transform: capitalize;
+  font-size: 14px;
+  color: #2b2b2b;
 }
 
 .top-link:hover {
   border-bottom: 2px solid #ddd;
+}
+
+.top-link:not(:first-of-type) {
+  margin-left: 1.6em;
 }
 
 :root {
@@ -151,7 +162,7 @@ body a {
 
 .header .search__input {
   width: 300px;
-  margin-left: 1em;
+  margin-left: 0em;
   border-radius: 16px;
   background-color: #429ec2;
   display: -webkit-box;
@@ -184,7 +195,7 @@ body a {
   font-family: inherit;
   background-color: inherit;
   width: 100%;
-  color: white;
+  color: silver;
 }
 
 .header .input::-webkit-input-placeholder {
@@ -276,6 +287,7 @@ body a {
 
 .main-section {
   padding: 1.5em;
+  padding-top: 200px;
   width: 100%;
 }
 
@@ -404,8 +416,6 @@ body a {
 
 .inner .current {
   background-color: #154182;
-  background-image: -webkit-gradient(linear, left bottom, right top, from(#154182), color-stop(#154182), to(#aeb7d4));
-  background-image: linear-gradient(to top right, #154182, #154182, #aeb7d4);
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -420,19 +430,27 @@ body a {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding: 2em 1em;
+  padding: 1.1em 1em;
   border-radius: 10px;
 }
 
 .inner .current h1 {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   text-transform: uppercase;
 }
 
+.inner .current .time {
+  margin: 0;
+  margin-top: -18px;
+  font-weight: 400;
+  font-size: 12px;
+}
+
 .inner .current .icon {
   width: 100px;
-  margin: 2em 0;
+  margin: 0em 0;
+  padding: 0;
 }
 
 .inner .current .temp__wrapper {
@@ -466,12 +484,24 @@ body a {
 }
 
 .inner .current .icon__wrapper #currentTemp {
-  font-size: 3rem;
+  font-size: 4.2rem;
+}
+
+.inner .current .icon__wrapper #currentTempWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.inner .current .icon__wrapper #degree {
+  display: inline-block;
+  margin-top: 0.5em;
+  font-size: 1.8em;
 }
 
 #currentCity {
   text-transform: capitalize;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 footer {

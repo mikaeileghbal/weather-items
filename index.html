@@ -17,8 +17,8 @@
     <header class="header">
       <div class="topnav">
         <div class="container">
-          <a class="logo" href="">Weather</a>
-          <a class="top-link" href="#">home</a>
+          <h1><a class="logo" href="">Weather</a></h1>
+          <a class="top-link" href="#"><i class="fa fa-home"></i> home</a>
           <a class="top-link" href="#">about</a>
           <a class="top-link" href="#">contact</a>
           <a class="top-link" href="#">portfolio</a>
@@ -69,11 +69,14 @@
         <span id="currentCity">City</span>
         <div class="row current">
           <h1>current weather</h1>
-          <div class="time">1:46 pm</div>
+          <div class="time">1:46 PM</div>
           <div class="temp__wrapper">
             <div class="icon__wrapper">
               <img class="icon current-icon" src="images/sun.png" alt="image" />
-              <span id="currentTemp"></span>
+              <div id="currentTempWrapper">
+                <span id="currentTemp"></span>
+                <span id="degree"></span>
+              </div>
             </div>
             <span id="currentDescription"></span>
           </div>

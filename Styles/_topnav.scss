@@ -1,6 +1,6 @@
 .topnav {
   width: 100%;
-  padding: 80px 0 20px;
+  padding: 15px 0 20px;
   background-color: white;
 
   .container {
@@ -8,19 +8,27 @@
     margin: 0 auto;
   }
 }
-
+h1 {
+  margin-bottom: 20px;
+}
 .logo {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  color: $accent;
+  text-transform: capitalize;
+  letter-spacing: 0px;
 }
 
 .top-link {
-  margin: 1em;
   padding: 2px;
+  text-transform: capitalize;
+  font-size: 14px;
+  color: #2b2b2b;
 
   &:hover {
     border-bottom: 2px solid #ddd;
+  }
+  &:not(:first-of-type) {
+    margin-left: 1.6em;
   }
 }

@@ -49,15 +49,15 @@ const weatherApp = (function () {
     console.log("Display: ", jsonData);
     if (jsonData) {
       let currentIcon = document.querySelector(".current-icon");
-      const currentTemp = document.getElementById("currentTemp");
+      const currentTemp = document.getElementById("currentTempWrapper");
       const currentCity = document.getElementById("currentCity");
       const currentDescription = document.getElementById("currentDescription");
 
       currentCity.textContent = city;
       currentIcon.src = ` http://openweathermap.org/img/wn/${jsonData.current.weather[0].icon}@2x.png`;
-      currentTemp.innerHTML = `<span>${Math.round(
+      currentTemp.innerHTML = `<span id="currentTemp">${Math.round(
         jsonData.current.temp
-      )}&deg ${getUnitSymbol(unit)}</span>`;
+      )}</span><span id="degree">&deg${getUnitSymbol(unit)}</span>`;
 
       currentDescription.textContent = jsonData.current.weather[0].description;
       fillDailyWeatherItems(jsonData.daily);
