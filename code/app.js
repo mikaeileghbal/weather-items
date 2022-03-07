@@ -1,89 +1,118 @@
-let city = "";
-let unit = "metric";
-let lat = 0;
-let lon = 0;
+const weatherApp = (function () {
+  const dailyrow = document.querySelector(".daily");
+  let unit = "metric";
+  let today = new Date().getDay();
+  let city = "frankfurt";
 
-const app = document.getElementById("root");
-const currentTemp = document.getElementById("currentTemp");
-const currentDescription = document.getElementById("currentDescription");
-const currentCity = document.getElementById("currentCity");
-const getWeatherBtn = document.getElementById("getWeatherBtn");
-const cityInput = document.getElementById("city");
-const buttonUnit = document.querySelector(".button--unit");
+  const getWeatherBtn = document.getElementById("getWeatherBtn");
+  const cityInput = document.getElementById("city");
+  const buttonUnit = document.querySelector(".button--unit");
 
-window.addEventListener("DOMContentLoaded", (event) => {
-  city = "frankfort";
-  callWeather();
-});
+  window.addEventListener("DOMContentLoaded", (event) => {
+    callWeather(unit);
+  });
 
-//get current weather
-getWeatherBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  city = cityInput.value;
-  if (city !== "" && typeof city === "string") {
-    callWeather();
+  getWeatherBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    city = cityInput.value;
+    if (city !== "" && typeof city === "string") {
+      callWeather(unit);
+    }
+  });
+
+  buttonUnit.addEventListener("click", (e) => {
+    e.preventDefault();
+    let element = e.target;
+    setBtnUnitState(element);
+    callWeather(unit);
+  });
+
+  function setBtnUnitState(element) {
+    element.parentNode.children[0].classList.remove("active");
+    element.parentNode.children[1].classList.remove("active");
+    element.classList.add("active");
+    if (element.classList.contains("F")) {
+      setDegreeF(element);
+    } else {
+      setDegreeC(element);
+    }
   }
-});
 
-function callWeather() {
-  setUrlCity(city);
-  getCityLocation(urlCity);
-}
-function setUrl(unit) {
-  urlAPI = new URL(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&&units=${unit}&appid=296730df19d32c45959f5b8635c7e228`
-    //`https://api.openweathermap.org/data/2.5/weather?${"units=" + unit + "&"}appid=296730df19d32c45959f5b8635c7e228`
-  );
-}
+  function callWeather(unit) {
+    const weather = new Weather();
+    weather.unit = unit;
+    weather.city = city;
+    weather.getCurrentWeather(displayWeather);
+  }
 
-function setUrlCity(city) {
-  urlCity = new URL(
-    `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=296730df19d32c45959f5b8635c7e228`
-  );
-  console.log("urlCity: ", urlCity);
-}
+  function displayWeather(jsonData) {
+    console.log("Display: ", jsonData);
+    if (jsonData) {
+      let currentIcon = document.querySelector(".current-icon");
+      const currentTemp = document.getElementById("currentTemp");
+      const currentCity = document.getElementById("currentCity");
+      const currentDescription = document.getElementById("currentDescription");
 
-function getWeatherData(url) {
-  fetch(url).then(getJson).then(displayResult).catch(errorHandler);
-  console.log("url: ", url);
-}
+      currentCity.textContent = city;
+      currentIcon.src = ` http://openweathermap.org/img/wn/${jsonData.current.weather[0].icon}@2x.png`;
+      currentTemp.innerHTML = `<span>${Math.round(
+        jsonData.current.temp
+      )}&deg ${getUnitSymbol(unit)}</span>`;
 
-function getCityLocation(url) {
-  fetch(url).then(getJson).then(displayCity).catch(errorHandler);
-}
+      currentDescription.textContent = jsonData.current.weather[0].description;
+      fillDailyWeatherItems(jsonData.daily);
+    } else {
+      console.log("Error");
+    }
+  }
 
-function displayCity(data) {
-  lat = data[0].lat;
-  lon = data[0].lon;
+  function fillDailyWeatherItems(daily) {
+    const daysCount = 7;
+    dailyrow.innerHTML = "";
 
-  setUrl("metric");
-  getWeatherData(urlAPI);
-}
+    for (let i = 0; i < daysCount; i++) {
+      let { min, max } = daily[i].temp;
+      let { main, icon } = daily[i].weather[0];
+      let dayItem = `<div class="w-day">
+    <div class="w-day-name">
+      <span>${getDayName(today)}</span>
+    </div>
+    <div class="w-icon">
+      <img class="icon" src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="image" />
+    </div>
+    <div class="w-temp">
+      <div class="temp-max">
+        <span>${Math.round(max)}&deg;</span>
+      </div>
+      <div class="temp-min">
+        <span>${Math.round(min)}&deg;</span>
+      </div>
+    </div>
+    </div>`;
+      dailyrow.innerHTML += dayItem;
+      today = today + 1;
+      if (today > 6) {
+        today = 0;
+      }
+    }
+  }
 
-async function displayWeather(url) {
-  let response = await fetch(url);
-  let data = await response.json();
-  return data;
-}
+  function getUnitSymbol(unit) {
+    return unit === "metric" ? "C" : "F";
+  }
 
-buttonUnit.addEventListener("click", (e) => {
-  e.preventDefault();
-  let element = e.target;
-  console.log(element);
-  element.parentNode.children[0].classList.remove("active");
-  element.parentNode.children[1].classList.remove("active");
-  element.classList.add("active");
-  if (element.classList.contains("F")) {
-    console.log("F");
+  function getDayName(dayNumber) {
+    const dayNames = ["Son", "Mon", "Tus", "Wed", "Thu", "Fri", "Sat"];
+    return dayNames[dayNumber];
+  }
+
+  function setDegreeF(element) {
     element.parentNode.children[2].classList.add("left");
     unit = "imperial";
-    setUrl("imperial");
-    getWeatherData(urlAPI);
-  } else {
-    console.log("C");
+  }
+
+  function setDegreeC(element) {
     element.parentNode.children[2].classList.remove("left");
     unit = "metric";
-    setUrl("metric");
-    getWeatherData(urlAPI);
   }
-});
+})();
