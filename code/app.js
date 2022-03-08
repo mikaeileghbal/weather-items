@@ -67,7 +67,7 @@ const weatherApp = (function () {
   }
 
   function fillDailyWeatherItems(daily) {
-    const daysCount = 7;
+    const daysCount = 8;
     dailyrow.innerHTML = "";
 
     for (let i = 0; i < daysCount; i++) {
@@ -77,9 +77,11 @@ const weatherApp = (function () {
     <div class="w-day-name">
       <span>${getDayName(today)}</span>
     </div>
+    <div class="w-temp-wrapper">
     <div class="w-icon">
       <img class="icon" src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="image" />
     </div>
+    
     <div class="w-temp">
       <div class="temp-max">
         <span>${Math.round(max)}&deg;</span>
@@ -87,7 +89,7 @@ const weatherApp = (function () {
       <div class="temp-min">
         <span>${Math.round(min)}&deg;</span>
       </div>
-    </div>
+      </div>
     </div>`;
       dailyrow.innerHTML += dayItem;
       today = today + 1;

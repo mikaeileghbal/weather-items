@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="Styles/styles.css" />
+    <link rel="stylesheet" href="Styles/main.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -16,7 +16,7 @@
   <body>
     <header class="header">
       <div class="topnav">
-        <div class="container">
+        <div class="container maxwidth">
           <h1><a class="logo" href="">Weather</a></h1>
           <a class="top-link" href="#"><i class="fa fa-home"></i> home</a>
           <a class="top-link" href="#">about</a>
@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="header__container">
-        <div class="wrapper">
+        <div class="wrapper maxwidth">
           <form id="search">
             <div class="search__input">
               <input
@@ -65,10 +65,10 @@
     </header>
 
     <section class="main-section">
-      <div class="inner">
+      <div class="inner maxwidth">
         <span id="currentCity">City</span>
         <div class="row current">
-          <h1>current weather</h1>
+          <h1 class="row-title">current weather</h1>
           <div class="time">1:46 PM</div>
           <div class="temp__wrapper">
             <div class="icon__wrapper">
@@ -80,9 +80,37 @@
             </div>
             <span id="currentDescription"></span>
           </div>
+          <div class="description">Today we have a clear sky.</div>
+          <div class="params">
+            <div class="params-item">
+              <span class="params-item-term">wind</span>
+              <span class="params-item-value" id="params-wind">4 mph</span>
+            </div>
+            <div class="params-item">
+              <span class="params-item-term">humidity</span>
+              <span class="params-item-value" id="params-humidity">69%</span>
+            </div>
+            <div class="params-item">
+              <span class="params-item-term">visibility</span>
+              <span class="params-item-value" id="params-visibility"
+                >3.1 mi</span
+              >
+            </div>
+            <div class="params-item">
+              <span class="params-item-term">pressure</span>
+              <span class="params-item-value" id="params-pressure"
+                >26.76 in</span
+              >
+            </div>
+            <div class="params-item">
+              <span class="params-item-term">dew point</span>
+              <span class="params-item-value" id="params-dew">43&deg;</span>
+            </div>
+          </div>
         </div>
 
         <!-- weather dayli status row begins -->
+        <h1 class="row-title">10 day forecast</h1>
         <div class="row daily">
           <!-- sunday status begins-->
           <!-- <div class="w-day">
@@ -108,11 +136,14 @@
     </section>
 
     <footer>
-      <div class="container">
+      <div class="container maxwidth">
         <div class="copyright">
-          <a href="http://openweathermap.org"><span>Open Weather Map</span></a>
-          <a href="http://mikaeileghbal.github.io"
+          <span>&copy;2022</span>
+          <a class="top-link" href="http://mikaeileghbal.github.io"
             ><span>Mikaeil Eghbal</span></a
+          >
+          <a class="top-link" href="http://openweathermap.org"
+            ><span>Open Weather Map</span></a
           >
         </div>
         <div class="social">

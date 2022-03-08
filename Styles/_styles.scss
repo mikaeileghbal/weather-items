@@ -1,34 +1,4 @@
-@import "global";
-@import "topnav";
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap");
-
-:root {
-  box-sizing: border-box;
-}
-
-*,
-::after,
-::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  list-style: none;
-  outline: none;
-}
-
-body {
-  font-family: "Rubik", sans-serif;
-  line-height: 1.2;
-  scroll-behavior: smooth;
-  a {
-    text-decoration: none;
-  }
-  background-color: $back;
-}
-
-// ==================================================
 // Header menu styles
-// ===================================================
 .header {
   position: fixed;
   background-color: white;
@@ -42,7 +12,6 @@ body {
     padding: 0.5em 0em;
   }
   .wrapper {
-    max-width: 1080px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -140,7 +109,7 @@ body {
     font-family: inherit;
     background-color: inherit;
     width: 100%;
-    color: silver;
+    color: white;
 
     //margin-right: 0.5em;
 
@@ -206,13 +175,12 @@ body {
   }
 }
 
-//=================================================
 // Weather presentation section styles
-// ================================================
+
 .main-section {
-  padding: 1.5em;
   padding-top: 200px;
   width: 100%;
+  background-color: $back;
 
   > .container {
     display: flex;
@@ -226,7 +194,6 @@ body {
 .inner {
   display: flex;
   flex-flow: column;
-  max-width: 1080px;
   margin: 0 auto;
   color: white;
   //height: 364px;
@@ -242,7 +209,7 @@ body {
 
   > .row {
     //background-color: aquamarine;
-    width: 100%;
+    width: 50%;
 
     margin: 1em 0;
     //height: 150px;
@@ -250,31 +217,36 @@ body {
     //border: 1px solid gray;
 
     .w-day {
+      width: 147.5px;
       display: flex;
       flex-flow: column;
-      justify-content: flex-start;
-      align-items: flex-start;
+      //justify-content: center;
+      //align-items: center;
       border-radius: 10px;
       cursor: pointer;
       //height: 92px;
       font-size: 14px;
       color: white;
-      text-align: center;
+      opacity: 0.8;
+
       background-color: rgba(255, 255, 255, 0.05); //$item;
-      padding: 4px;
+      padding: 12px 37px 16px 28px;
       transition: 0.2s;
 
       @media screen and (min-width: 768px) {
-        padding: 1em;
+      }
+      .w-temp-wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
       }
       .w-day-name {
         font-size: 0.9rem;
-        font-weight: 500;
+        font-weight: 400;
         width: 100%;
       }
 
       .w-icon {
-        width: 100%;
       }
 
       .icon {
@@ -284,20 +256,20 @@ body {
       .w-temp {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        padding: 0.5em 0.5em;
-        width: 100%;
-
+        justify-content: center;
         @media screen and (min-width: 768px) {
-          flex-direction: row;
+          //flex-direction: row;
         }
       }
       .w-temp > * {
-        padding: 8px 0.5em;
+        padding: 4px 0 4px 0px;
         font-weight: 400;
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
 
+      .temp-max {
+        font-weight: 500;
+      }
       &:hover {
         box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
         background-color: rgba(255, 255, 255, 0.1);
@@ -316,17 +288,13 @@ body {
     padding: 1.1em 1em;
     border-radius: 10px;
 
-    h1 {
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-transform: uppercase;
-    }
-
     .time {
       margin: 0;
-      margin-top: -18px;
+      margin-top: 2px;
       font-weight: 400;
       font-size: 12px;
+      color: white;
+      opacity: 0.8;
     }
 
     .icon {
@@ -343,6 +311,8 @@ body {
       #currentDescription {
         margin-left: 2em;
         text-transform: capitalize;
+        font-size: 1.2em;
+        font-weight: 500;
       }
     }
 
@@ -352,11 +322,13 @@ body {
       justify-content: space-between;
       align-items: center;
 
-      #currentTemp {
-        font-size: 4.2rem;
-      }
       #currentTempWrapper {
         display: flex;
+        width: 100px;
+      }
+
+      #currentTemp {
+        font-size: 4.2rem;
       }
       #degree {
         display: inline-block;
@@ -367,9 +339,18 @@ body {
   }
 }
 
+h1.row-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
 #currentCity {
   text-transform: capitalize;
   font-size: 1rem;
+}
+.description {
+  margin: 1em 0 2em;
 }
 
 footer {
@@ -378,10 +359,11 @@ footer {
 
   .container {
     width: 100%;
-    padding: 1em;
+    margin: auto;
+    padding: 1em 0;
     display: flex;
-    flex-flow: column;
-    justify-content: center;
+    flex-flow: row;
+    justify-content: space-between;
     align-items: center;
   }
   .social {
@@ -419,21 +401,23 @@ footer {
       color: white;
     }
   }
+}
+.params {
+  width: 100%;
 
-  .copyright {
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  justify-content: space-between;
+  .params-item {
     display: flex;
-    align-items: center;
     flex-direction: column;
+  }
 
-    a {
-      color: black;
-      font-size: 1em;
-      font-weight: 400;
-      margin-bottom: 0.5em;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+  .params-item-term {
+    color: white;
+    opacity: 0.8;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: -0.5px;
   }
 }
