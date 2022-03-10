@@ -52,12 +52,26 @@ const weatherApp = (function () {
       const currentTemp = document.getElementById("currentTempWrapper");
       const currentCity = document.getElementById("currentCity");
       const currentDescription = document.getElementById("currentDescription");
+      const paramsWind = document.getElementById("params-wind");
+      const paramsHumidity = document.getElementById("params-humidity");
+      const paramsVisibility = document.getElementById("params-visibility");
+      const paramsPressure = document.getElementById("params-pressure");
+      const paramsDew = document.getElementById("params-dew");
+
+      const descBrief = document.getElementById("description-brief");
+      descBrief.textContent = jsonData.current.weather[0].description;
 
       currentCity.textContent = city;
       currentIcon.src = ` http://openweathermap.org/img/wn/${jsonData.current.weather[0].icon}@2x.png`;
       currentTemp.innerHTML = `<span id="currentTemp">${Math.round(
         jsonData.current.temp
       )}</span><span id="degree">&deg${getUnitSymbol(unit)}</span>`;
+
+      paramsWind.textContent = jsonData.current.wind_speed;
+      paramsHumidity.textContent = jsonData.current.humidity;
+      paramsVisibility.textContent = jsonData.current.visibility;
+      paramsPressure.textContent = jsonData.current.pressure;
+      paramsDew.textContent = jsonData.current.dew_point;
 
       currentDescription.textContent = jsonData.current.weather[0].description;
       fillDailyWeatherItems(jsonData.daily);
@@ -90,7 +104,9 @@ const weatherApp = (function () {
         <span>${Math.round(min)}&deg;</span>
       </div>
       </div>
-    </div>`;
+    </div>
+    <button class="slide">&gt;</button>
+    `;
       dailyrow.innerHTML += dayItem;
       today = today + 1;
       if (today > 6) {

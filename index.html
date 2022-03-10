@@ -22,6 +22,9 @@
           <a class="top-link" href="#">about</a>
           <a class="top-link" href="#">contact</a>
           <a class="top-link" href="#">portfolio</a>
+          <a class="button-top" href="http://openweathermap.org"
+            >Open Weather Map</a
+          >
         </div>
       </div>
       <div class="header__container">
@@ -80,7 +83,9 @@
             </div>
             <span id="currentDescription"></span>
           </div>
-          <div class="description">Today we have a clear sky.</div>
+          <div class="description">
+            Today we have <span id="description-brief"></span>
+          </div>
           <div class="params">
             <div class="params-item">
               <span class="params-item-term">wind</span>
@@ -111,24 +116,28 @@
 
         <!-- weather dayli status row begins -->
         <h1 class="row-title">10 day forecast</h1>
-        <div class="row daily">
-          <!-- sunday status begins-->
+        <div class="daily">
+          <!--sunday status begins-->
           <!-- <div class="w-day">
             <div class="w-day-name">
-              <span>Sun</span>
+              <span></span>
             </div>
-            <div class="w-icon">
-              <img class="icon" src="images/sun.png" alt="image" />
-            </div>
-            <div class="w-temp">
-              <div class="temp-max">
-                <span>32&deg;</span>
+            <div class="w-temp-wrapper">
+              <div class="w-icon">
+                <img class="icon" src="./images/cloud.png" alt="image" />
               </div>
-              <div class="temp-min">
-                <span>26&deg;</span>
+
+              <div class="w-temp">
+                <div class="temp-max">
+                  <span>15&deg;</span>
+                </div>
+                <div class="temp-min">
+                  <span>10&deg;</span>
+                </div>
               </div>
             </div>
           </div> -->
+          <button class="slide">&gt;</button>
           <!-- sunday status ends-->
         </div>
         <!-- weather dayli status row begins -->
@@ -147,20 +156,10 @@
           >
         </div>
         <div class="social">
-          <ul>
-            <li>
-              <a href=""><i class="fa fa-facebook"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa fa-instagram"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa fa-github"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa fa-linkedin"></i></a>
-            </li>
-          </ul>
+          <a href=""><i class="fa fa-facebook"></i></a>
+          <a href=""><i class="fa fa-instagram"></i></a>
+          <a href=""><i class="fa fa-github"></i></a>
+          <a href=""><i class="fa fa-linkedin"></i></a>
         </div>
       </div>
     </footer>

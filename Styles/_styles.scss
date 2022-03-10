@@ -5,6 +5,7 @@
   width: 100%;
   margin: 0;
   padding: 0 0;
+  z-index: 2;
 
   .header__container {
     background-color: $header;
@@ -118,6 +119,19 @@
     }
   }
 
+  .button-top {
+    float: right;
+    border: 1px solid $gray;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: $gray-dark;
+    margin-top: -6px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
   .btn {
     font-family: inherit;
     font-size: 0.9rem;
@@ -200,86 +214,80 @@
   //background-color: antiquewhite;
   //box-shadow: rgba(0, 0, 0, 0.3) 4px 4px 15px;
   .daily {
+    position: relative;
     display: grid;
     grid-auto-flow: column;
-
     gap: 0.5em;
+    max-width: $container-max-width;
+    white-space: nowrap;
+    overflow-x: hidden;
+    margin: 1em 0;
     //justify-content: space-between;
   }
 
-  > .row {
-    //background-color: aquamarine;
-    width: 50%;
+  .w-day {
+    width: 147.5px;
+    display: flex;
+    flex-flow: column;
+    //justify-content: center;
+    //align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    //height: 92px;
+    font-size: 14px;
+    color: white;
+    opacity: 0.8;
 
-    margin: 1em 0;
-    //height: 150px;
-    //background-color: $item;
-    //border: 1px solid gray;
+    background-color: rgba(255, 255, 255, 0.05); //$item;
+    padding: 12px 37px 16px 28px;
+    transition: 0.2s;
 
-    .w-day {
-      width: 147.5px;
+    @media screen and (min-width: 768px) {
+    }
+    .w-temp-wrapper {
       display: flex;
-      flex-flow: column;
-      //justify-content: center;
-      //align-items: center;
-      border-radius: 10px;
-      cursor: pointer;
-      //height: 92px;
-      font-size: 14px;
-      color: white;
-      opacity: 0.8;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    .w-day-name {
+      font-size: 0.9rem;
+      font-weight: 400;
+      width: 100%;
+    }
 
-      background-color: rgba(255, 255, 255, 0.05); //$item;
-      padding: 12px 37px 16px 28px;
-      transition: 0.2s;
+    .w-icon {
+    }
 
+    .icon {
+      width: 60px;
+    }
+
+    .w-temp {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       @media screen and (min-width: 768px) {
+        //flex-direction: row;
       }
-      .w-temp-wrapper {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-      }
-      .w-day-name {
-        font-size: 0.9rem;
-        font-weight: 400;
-        width: 100%;
-      }
+    }
+    .w-temp > * {
+      padding: 4px 0 4px 0px;
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
 
-      .w-icon {
-      }
-
-      .icon {
-        width: 60px;
-      }
-
-      .w-temp {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        @media screen and (min-width: 768px) {
-          //flex-direction: row;
-        }
-      }
-      .w-temp > * {
-        padding: 4px 0 4px 0px;
-        font-weight: 400;
-        font-size: 1.1rem;
-      }
-
-      .temp-max {
-        font-weight: 500;
-      }
-      &:hover {
-        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
-        background-color: rgba(255, 255, 255, 0.1);
-      }
+    .temp-max {
+      font-weight: 500;
+    }
+    &:hover {
+      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgba(255, 255, 255, 0.1);
     }
   }
 
   .current {
     background-color: $back-dark;
-
+    width: 50%;
     color: white;
     display: flex;
     flex-flow: column nowrap;
@@ -343,6 +351,7 @@ h1.row-title {
   font-size: 0.9rem;
   font-weight: 500;
   text-transform: uppercase;
+  margin-top: 1em;
 }
 
 #currentCity {
@@ -356,6 +365,8 @@ h1.row-title {
 footer {
   width: 100%;
   background-color: white;
+  font-size: 0.9em;
+  color: #7a7a7a;
 
   .container {
     width: 100%;
@@ -367,38 +378,26 @@ footer {
     align-items: center;
   }
   .social {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-
-    ul {
-      display: flex;
-      width: 100%;
-    }
-    li {
-      flex: 1;
-      background-color: $accent;
-      border-radius: 50%;
-      text-align: center;
-      width: 34px;
-      height: 34px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      transition: background-color 0.2s ease;
-
-      &:hover {
-        background-color: lighten($color: $accent, $amount: 10);
-        transition: background-color 0.2s ease;
-      }
-    }
-    li:not(:last-child) {
-      margin-right: 1em;
-    }
     a {
-      display: block;
-      font-size: 1.2em;
-      color: white;
+      display: inline-block;
+
+      color: #7a7a7a;
+      margin: 0 0.5em;
+      text-align: center;
+      padding: 4px;
+      font-size: 1.3em;
+    }
+    .fa {
+      box-sizing: unset;
+      font-size: 1.1em;
+      font-weight: 800;
+      width: 25px;
+      height: 25px;
+      display: inline-block;
+      transition: 0.2s;
+      &:hover {
+        color: black;
+      }
     }
   }
 }
@@ -420,4 +419,17 @@ footer {
     font-size: 0.8em;
     letter-spacing: -0.5px;
   }
+}
+
+.slide {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  right: -12px;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  border: 1px solid transparent;
+  padding: 4px 8px;
+  border-radius: 50%;
 }

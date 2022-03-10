@@ -22,7 +22,7 @@ body {
 }
 
 .maxwidth {
-  max-width: 1240px;
+  max-width: 1220px;
 }
 
 .header {
@@ -31,6 +31,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0 0;
+  z-index: 2;
   /* Change the white to any color */
 }
 
@@ -174,6 +175,20 @@ body {
   color: white;
 }
 
+.header .button-top {
+  float: right;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #2b2b2b;
+  margin-top: -6px;
+}
+
+.header .button-top:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
 .header .btn {
   font-family: inherit;
   font-size: 0.9rem;
@@ -281,18 +296,18 @@ body {
 }
 
 .inner .daily {
+  position: relative;
   display: -ms-grid;
   display: grid;
   grid-auto-flow: column;
   gap: 0.5em;
-}
-
-.inner > .row {
-  width: 50%;
+  max-width: 1220px;
+  white-space: nowrap;
+  overflow-x: hidden;
   margin: 1em 0;
 }
 
-.inner > .row .w-day {
+.inner .w-day {
   width: 147.5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -312,7 +327,7 @@ body {
   transition: 0.2s;
 }
 
-.inner > .row .w-day .w-temp-wrapper {
+.inner .w-day .w-temp-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -324,17 +339,17 @@ body {
       flex-wrap: nowrap;
 }
 
-.inner > .row .w-day .w-day-name {
+.inner .w-day .w-day-name {
   font-size: 0.9rem;
   font-weight: 400;
   width: 100%;
 }
 
-.inner > .row .w-day .icon {
+.inner .w-day .icon {
   width: 60px;
 }
 
-.inner > .row .w-day .w-temp {
+.inner .w-day .w-temp {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -347,17 +362,17 @@ body {
           justify-content: center;
 }
 
-.inner > .row .w-day .w-temp > * {
+.inner .w-day .w-temp > * {
   padding: 4px 0 4px 0px;
   font-weight: 400;
   font-size: 1.1rem;
 }
 
-.inner > .row .w-day .temp-max {
+.inner .w-day .temp-max {
   font-weight: 500;
 }
 
-.inner > .row .w-day:hover {
+.inner .w-day:hover {
   -webkit-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
   background-color: rgba(255, 255, 255, 0.1);
@@ -365,6 +380,7 @@ body {
 
 .inner .current {
   background-color: #154182;
+  width: 50%;
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -451,6 +467,7 @@ h1.row-title {
   font-size: 0.9rem;
   font-weight: 500;
   text-transform: uppercase;
+  margin-top: 1em;
 }
 
 #currentCity {
@@ -465,6 +482,8 @@ h1.row-title {
 footer {
   width: 100%;
   background-color: white;
+  font-size: 0.9em;
+  color: #7a7a7a;
 }
 
 footer .container {
@@ -486,54 +505,29 @@ footer .container {
           align-items: center;
 }
 
-footer .social {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
-}
-
-footer .social ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-footer .social li {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  background-color: #429ec2;
-  border-radius: 50%;
-  text-align: center;
-  width: 34px;
-  height: 34px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: background-color 0.2s ease;
-  transition: background-color 0.2s ease;
-}
-
-footer .social li:hover {
-  background-color: #69b2ce;
-  -webkit-transition: background-color 0.2s ease;
-  transition: background-color 0.2s ease;
-}
-
-footer .social li:not(:last-child) {
-  margin-right: 1em;
-}
-
 footer .social a {
-  display: block;
-  font-size: 1.2em;
-  color: white;
+  display: inline-block;
+  color: #7a7a7a;
+  margin: 0 0.5em;
+  text-align: center;
+  padding: 4px;
+  font-size: 1.3em;
+}
+
+footer .social .fa {
+  -webkit-box-sizing: unset;
+          box-sizing: unset;
+  font-size: 1.1em;
+  font-weight: 800;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+footer .social .fa:hover {
+  color: black;
 }
 
 .params {
@@ -563,6 +557,20 @@ footer .social a {
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: -0.5px;
+}
+
+.slide {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  right: -12px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  border: 1px solid transparent;
+  padding: 4px 8px;
+  border-radius: 50%;
 }
 
 .topnav {
