@@ -1,0 +1,23 @@
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::after,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  list-style: none;
+  outline: none;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1.2;
+  scroll-behavior: smooth;
+}
+
+.maxwidth {
+  max-width: $container-max-width;
+}

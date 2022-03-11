@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="Styles/styles.css" />
+    <link rel="stylesheet" href="Styles/main.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -15,79 +15,129 @@
 
   <body>
     <header class="header">
+      <div class="topnav">
+        <div class="container maxwidth">
+          <h1><a class="logo" href="">Weather</a></h1>
+          <a class="top-link" href="#"><i class="fa fa-home"></i> home</a>
+          <a class="top-link" href="#">about</a>
+          <a class="top-link" href="#">contact</a>
+          <a class="top-link" href="#">portfolio</a>
+          <a class="button-top" href="http://openweathermap.org"
+            >Open Weather Map</a
+          >
+        </div>
+      </div>
       <div class="header__container">
-        <a class="logo" href="">Weather</a>
-        <form id="search">
-          <div class="search__input">
-            <input
-              id="city"
-              name="city"
-              class="input"
-              placeholder="Search for location"
-              required
-            />
-            <button
-              class="btn"
-              type="submit"
-              value="Get"
-              name="get"
-              id="getWeatherBtn"
-            >
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
-        </form>
-        <nav id="header__nav">
-          <ul class="header__nav__list">
-            <!-- <li class="header__item"><a class="link" href="">Helsinki, Uusima...</a></li>
+        <div class="wrapper maxwidth">
+          <form id="search">
+            <div class="search__input">
+              <input
+                id="city"
+                name="city"
+                class="input"
+                placeholder="Search for location"
+                required
+              />
+              <button
+                class="btn"
+                type="submit"
+                value="Get"
+                name="get"
+                id="getWeatherBtn"
+              >
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </form>
+          <nav id="header__nav">
+            <ul class="header__nav__list">
+              <!-- <li class="header__item"><a class="link" href="">Helsinki, Uusima...</a></li>
                         <li class="header__item"><a class="link" href="">Tomorrow</a></li>
                         <li class="header__item"><a class="link" href="">7 Days</a></li> -->
-            <li class="header__item last--item">
-              <button class="button--unit">
-                <span class="F">&deg;F</span>
-                <span class="C active">&deg;C</span>
-                <span class="button__slide"></span>
-              </button>
-            </li>
-          </ul>
-        </nav>
+              <li class="header__item last--item">
+                <button class="button--unit">
+                  <span class="F">&deg;F</span>
+                  <span class="C active">&deg;C</span>
+                  <span class="button__slide"></span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
 
     <section class="main-section">
-      <div class="inner">
+      <div class="inner maxwidth">
         <span id="currentCity">City</span>
         <div class="row current">
-          <h1>current weather</h1>
-          <div class="time">1:46 pm</div>
+          <h1 class="row-title">current weather</h1>
+          <div class="time">1:46 PM</div>
           <div class="temp__wrapper">
             <div class="icon__wrapper">
               <img class="icon current-icon" src="images/sun.png" alt="image" />
-              <span id="currentTemp"></span>
+              <div id="currentTempWrapper">
+                <span id="currentTemp"></span>
+                <span id="degree"></span>
+              </div>
             </div>
             <span id="currentDescription"></span>
+          </div>
+          <div class="description">
+            Today we have <span id="description-brief"></span>
+          </div>
+          <div class="params">
+            <div class="params-item">
+              <span class="params-item-term">wind</span>
+              <span class="params-item-value" id="params-wind">4 mph</span>
+            </div>
+            <div class="params-item">
+              <span class="params-item-term">humidity</span>
+              <span class="params-item-value" id="params-humidity">69%</span>
+            </div>
+            <div class="params-item">
+              <span class="params-item-term">visibility</span>
+              <span class="params-item-value" id="params-visibility"
+                >3.1 mi</span
+              >
+            </div>
+            <div class="params-item">
+              <span class="params-item-term">pressure</span>
+              <span class="params-item-value" id="params-pressure"
+                >26.76 in</span
+              >
+            </div>
+            <div class="params-item">
+              <span class="params-item-term">dew point</span>
+              <span class="params-item-value" id="params-dew">43&deg;</span>
+            </div>
           </div>
         </div>
 
         <!-- weather dayli status row begins -->
-        <div class="row daily">
-          <!-- sunday status begins-->
+        <h1 class="row-title">10 day forecast</h1>
+        <div class="daily">
+          <!--sunday status begins-->
           <!-- <div class="w-day">
             <div class="w-day-name">
-              <span>Sun</span>
+              <span></span>
             </div>
-            <div class="w-icon">
-              <img class="icon" src="images/sun.png" alt="image" />
-            </div>
-            <div class="w-temp">
-              <div class="temp-max">
-                <span>32&deg;</span>
+            <div class="w-temp-wrapper">
+              <div class="w-icon">
+                <img class="icon" src="./images/cloud.png" alt="image" />
               </div>
-              <div class="temp-min">
-                <span>26&deg;</span>
+
+              <div class="w-temp">
+                <div class="temp-max">
+                  <span>15&deg;</span>
+                </div>
+                <div class="temp-min">
+                  <span>10&deg;</span>
+                </div>
               </div>
             </div>
           </div> -->
+          <button class="slide">&gt;</button>
           <!-- sunday status ends-->
         </div>
         <!-- weather dayli status row begins -->
@@ -95,28 +145,21 @@
     </section>
 
     <footer>
-      <div class="container">
+      <div class="container maxwidth">
         <div class="copyright">
-          <a href="http://openweathermap.org"><span>Open Weather Map</span></a>
-          <a href="http://mikaeileghbal.github.io"
+          <span>&copy;2022</span>
+          <a class="top-link" href="http://mikaeileghbal.github.io"
             ><span>Mikaeil Eghbal</span></a
+          >
+          <a class="top-link" href="http://openweathermap.org"
+            ><span>Open Weather Map</span></a
           >
         </div>
         <div class="social">
-          <ul>
-            <li>
-              <a href=""><i class="fa fa-facebook"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa fa-instagram"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa fa-github"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa fa-linkedin"></i></a>
-            </li>
-          </ul>
+          <a href=""><i class="fa fa-facebook"></i></a>
+          <a href=""><i class="fa fa-instagram"></i></a>
+          <a href=""><i class="fa fa-github"></i></a>
+          <a href=""><i class="fa fa-linkedin"></i></a>
         </div>
       </div>
     </footer>

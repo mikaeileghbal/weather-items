@@ -49,15 +49,29 @@ const weatherApp = (function () {
     console.log("Display: ", jsonData);
     if (jsonData) {
       let currentIcon = document.querySelector(".current-icon");
-      const currentTemp = document.getElementById("currentTemp");
+      const currentTemp = document.getElementById("currentTempWrapper");
       const currentCity = document.getElementById("currentCity");
       const currentDescription = document.getElementById("currentDescription");
+      const paramsWind = document.getElementById("params-wind");
+      const paramsHumidity = document.getElementById("params-humidity");
+      const paramsVisibility = document.getElementById("params-visibility");
+      const paramsPressure = document.getElementById("params-pressure");
+      const paramsDew = document.getElementById("params-dew");
+
+      const descBrief = document.getElementById("description-brief");
+      descBrief.textContent = jsonData.current.weather[0].description;
 
       currentCity.textContent = city;
       currentIcon.src = ` http://openweathermap.org/img/wn/${jsonData.current.weather[0].icon}@2x.png`;
-      currentTemp.innerHTML = `<span>${Math.round(
+      currentTemp.innerHTML = `<span id="currentTemp">${Math.round(
         jsonData.current.temp
-      )}&deg ${getUnitSymbol(unit)}</span>`;
+      )}</span><span id="degree">&deg${getUnitSymbol(unit)}</span>`;
+
+      paramsWind.textContent = jsonData.current.wind_speed;
+      paramsHumidity.textContent = jsonData.current.humidity;
+      paramsVisibility.textContent = jsonData.current.visibility;
+      paramsPressure.textContent = jsonData.current.pressure;
+      paramsDew.textContent = jsonData.current.dew_point;
 
       currentDescription.textContent = jsonData.current.weather[0].description;
       fillDailyWeatherItems(jsonData.daily);
@@ -67,7 +81,7 @@ const weatherApp = (function () {
   }
 
   function fillDailyWeatherItems(daily) {
-    const daysCount = 7;
+    const daysCount = 8;
     dailyrow.innerHTML = "";
 
     for (let i = 0; i < daysCount; i++) {
@@ -77,9 +91,11 @@ const weatherApp = (function () {
     <div class="w-day-name">
       <span>${getDayName(today)}</span>
     </div>
+    <div class="w-temp-wrapper">
     <div class="w-icon">
       <img class="icon" src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="image" />
     </div>
+    
     <div class="w-temp">
       <div class="temp-max">
         <span>${Math.round(max)}&deg;</span>
@@ -87,8 +103,10 @@ const weatherApp = (function () {
       <div class="temp-min">
         <span>${Math.round(min)}&deg;</span>
       </div>
+      </div>
     </div>
-    </div>`;
+    <button class="slide">&gt;</button>
+    `;
       dailyrow.innerHTML += dayItem;
       today = today + 1;
       if (today > 6) {
