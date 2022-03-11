@@ -473,6 +473,7 @@ h1.row-title {
 #currentCity {
   text-transform: capitalize;
   font-size: 1rem;
+  margin: 1em 0;
 }
 
 .description {
@@ -511,13 +512,12 @@ footer .social a {
   margin: 0 0.5em;
   text-align: center;
   padding: 4px;
-  font-size: 1.3em;
 }
 
 footer .social .fa {
   -webkit-box-sizing: unset;
           box-sizing: unset;
-  font-size: 1.1em;
+  font-size: 1.5em;
   font-weight: 800;
   width: 25px;
   height: 25px;
