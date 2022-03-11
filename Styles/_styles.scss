@@ -1,194 +1,3 @@
-// Header menu styles
-.header {
-  position: fixed;
-  background-color: white;
-  width: 100%;
-  margin: 0;
-  padding: 0 0;
-  z-index: 2;
-
-  .header__container {
-    background-color: $header;
-    margin: 0 auto;
-    padding: 0.5em 0em;
-  }
-  .wrapper {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-  }
-  #search {
-    padding: 0em;
-
-    //background-color: red;
-  }
-  #header__nav {
-    width: 100%;
-  }
-  .header__nav__list {
-    display: flex;
-
-    //width: 100%;
-    align-items: center;
-    align-content: center;
-    padding: 0;
-    margin-left: 2em;
-    //background-color: cadetblue;
-  }
-
-  .last--item {
-    margin-left: auto;
-  }
-
-  a.link:not(.last) {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: white;
-    padding: 0.5em 1em;
-    //background-color: brown;
-
-    &:hover {
-      background-color: aliceblue;
-      border-radius: 20px;
-      transition: background-color 0.4s ease;
-    }
-  }
-
-  .burger {
-    span {
-      display: block;
-      position: relative;
-      width: 25px;
-      height: 2px;
-      margin: 4px;
-      background-color: #7a7a7a;
-      z-index: 1000;
-      //transition: all 0.5s ease-out;
-      transition: transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5);
-    }
-    &:hover > :first-child {
-      transform: translate(0, -3px);
-      //transition: transform .45s cubic-bezier(.43,.77,.15,1.5);
-    }
-    &:hover > :last-child {
-      transform: translate(0, 3px);
-      //transition: transform .45s cubic-bezier(.43,.77,.15,1.5);
-    }
-  }
-  .header__nav {
-    display: flex;
-  }
-
-  .search__input {
-    width: 300px;
-    margin-left: 0em;
-    border-radius: 16px;
-    background-color: $accent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0em 1.5em 0em 1em;
-    line-height: 0.8em;
-  }
-
-  /* Change the white to any color */
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px $accent inset !important;
-    -webkit-text-fill-color: white;
-    border: none;
-  }
-
-  .input {
-    border: none;
-    padding: 0.7em 0em 0.5em;
-    font-size: 0.9rem;
-    font-weight: 400;
-    font-family: inherit;
-    background-color: inherit;
-    width: 100%;
-    color: white;
-
-    //margin-right: 0.5em;
-
-    &::placeholder {
-      color: white;
-    }
-  }
-
-  .button-top {
-    float: right;
-    border: 1px solid $gray;
-    border-radius: 20px;
-    padding: 8px 16px;
-    font-size: 14px;
-    color: $gray-dark;
-    margin-top: -6px;
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.05);
-    }
-  }
-  .btn {
-    font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 500;
-    background-color: inherit;
-    border: none;
-    color: white;
-    cursor: pointer;
-    transition: transform 0.2s;
-    &:hover {
-      transform: scale(1.1);
-    }
-    &:active {
-      color: red;
-    }
-  }
-  .button--unit {
-    border: none;
-    background-color: rgba(66, 158, 194, 0.6);
-    padding: 0em 0em;
-    border-radius: 6px;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-    span {
-      padding: 0.7em 0.8em;
-      border-radius: 6px;
-      font-weight: 600;
-      background-color: transparent;
-      color: rgb(190, 190, 190);
-      z-index: 1;
-      //background-color: aqua;
-    }
-
-    span.active {
-      color: white;
-      font-weight: 700;
-    }
-
-    .button__slide {
-      @extend span;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 50%;
-      height: 100%;
-      z-index: 0;
-      background-color: rgba(66, 158, 194, 1);
-      transition: transform 0.3s;
-    }
-    .button__slide.left {
-      transform: translateX(-100%);
-    }
-  }
-}
-
 // Weather presentation section styles
 
 .main-section,
@@ -196,7 +5,9 @@
   background-color: $back;
 }
 .main-section {
-  padding-top: 168px;
+  @include phablet {
+    padding-top: 168px;
+  }
 }
 
 .row {
@@ -205,6 +16,11 @@
   margin: 0 auto;
   color: white;
   background-color: $back;
+  padding: 0 1em;
+
+  @include thirteen {
+    padding: 0;
+  }
 }
 .col-100 {
   flex: 100%;
@@ -227,8 +43,8 @@ iframe {
   max-width: $container-max-width;
   margin: 1em 0;
   //justify-content: space-between;
-  @media screen and (min-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  @include desktop {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 }
 
@@ -249,8 +65,6 @@ iframe {
   padding: 12px 37px 16px 28px;
   transition: 0.2s;
 
-  @media screen and (min-width: 768px) {
-  }
   .w-temp-wrapper {
     display: flex;
     flex-direction: row;
@@ -273,9 +87,6 @@ iframe {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    @media screen and (min-width: 768px) {
-      //flex-direction: row;
-    }
   }
   .w-temp > * {
     padding: 4px 0 4px 0px;
@@ -387,19 +198,19 @@ footer {
   .container {
     width: 100%;
     margin: auto;
-    padding: 1em 0;
+    padding: 1em 1em;
     display: flex;
     flex-flow: row;
     justify-content: space-between;
     align-items: center;
+    @include thirteen {
+      padding: 1em 0em;
+    }
   }
   .social {
     a {
-      display: inline-block;
       color: #7a7a7a;
-      margin: 0 0.5em;
-      text-align: center;
-      padding: 4px;
+      text-align: right;
     }
     .fa {
       box-sizing: unset;
@@ -407,7 +218,8 @@ footer {
       font-weight: 500;
       width: 25px;
       height: 25px;
-      display: inline-block;
+      margin-left: 1em;
+      display: inline;
       transition: 0.2s;
       &:hover {
         color: black;
