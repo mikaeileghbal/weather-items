@@ -1,5 +1,85 @@
-$back: rgb(61, 77, 109);
-$header: rgb(84, 97, 122);
-$search: rgb(111, 122, 143);
-$item: rgb(68, 84, 114);
+// $back: rgb(61, 77, 109);
+// $header: rgb(84, 97, 122);
+// $search: rgb(111, 122, 143);
+// $item: rgb(68, 84, 114);
+// $accent: rgb(66, 158, 194);
+$back: rgb(32, 76, 140);
+$header: rgb(50, 91, 143);
+$search: rgb(74, 111, 156);
+$item: rgb(42, 83, 144);
 $accent: rgb(66, 158, 194);
+$back-dark: rgb(21, 65, 130);
+$back-light: rgb(174, 183, 212);
+$gray: #ddd;
+$gray-dark: #2b2b2b;
+$container-max-width: 1220px;
+
+// Media queries
+$fifteen-inch: 1440px;
+$thirteen-inch: 1280px;
+$desktop-width: 1024px;
+$little-desktop: 850px;
+$tablet-width: 768px;
+$weird-not-tablet-width: 630px;
+$phablet-width: 550px;
+$mobile-width: 480px;
+$small-mobile-width: 360px;
+$tiny-mobile-width: 330px;
+
+@mixin transition {
+  transition: all 0.2s ease-in-out;
+}
+
+@mixin thirteen {
+  @media screen and (min-width: #{$thirteen-inch}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin little-desktop {
+  @media screen and (min-width: #{$little-desktop}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin weird-medium {
+  @media screen and (min-width: #{$weird-not-tablet-width}) {
+    @content;
+  }
+}
+
+@mixin phablet {
+  @media screen and (min-width: #{$phablet-width}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (min-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin small-mobile {
+  @media screen and (min-width: #{$small-mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tiny-mobile {
+  @media screen and (min-width: #{$tiny-mobile-width}) {
+    @content;
+  }
+}
