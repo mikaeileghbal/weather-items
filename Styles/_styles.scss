@@ -191,174 +191,189 @@
 
 // Weather presentation section styles
 
-.main-section {
-  padding-top: 200px;
-  width: 100%;
+.main-section,
+.daily-section {
   background-color: $back;
+}
+.main-section {
+  padding-top: 168px;
+}
 
-  > .container {
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 1.1em;
+.row {
+  display: flex;
+  flex-flow: row;
+  margin: 0 auto;
+  color: white;
+  background-color: $back;
+}
+.col-100 {
+  flex: 100%;
+}
+.col-50 {
+  flex: 50%;
+}
+.col-50:first-child {
+  margin-right: 0.5em;
+}
+
+iframe {
+  height: 100%;
+  width: 100%;
+}
+.daily {
+  position: relative;
+  display: grid;
+  gap: 0.5em;
+  max-width: $container-max-width;
+  margin: 1em 0;
+  //justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   }
 }
 
-.inner {
+.w-day {
+  //width: 147.5px;
   display: flex;
   flex-flow: column;
-  margin: 0 auto;
+  //justify-content: center;
+  //align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  //height: 92px;
+  font-size: 14px;
   color: white;
-  //height: 364px;
-  //background-color: antiquewhite;
-  //box-shadow: rgba(0, 0, 0, 0.3) 4px 4px 15px;
-  .daily {
-    position: relative;
-    display: grid;
-    grid-auto-flow: column;
-    gap: 0.5em;
-    max-width: $container-max-width;
-    white-space: nowrap;
-    overflow-x: hidden;
-    margin: 1em 0;
-    //justify-content: space-between;
+  opacity: 0.8;
+
+  background-color: rgba(255, 255, 255, 0.05); //$item;
+  padding: 12px 37px 16px 28px;
+  transition: 0.2s;
+
+  @media screen and (min-width: 768px) {
+  }
+  .w-temp-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .w-day-name {
+    font-size: 0.9rem;
+    font-weight: 400;
+    width: 100%;
   }
 
-  .w-day {
-    width: 147.5px;
+  .w-icon {
+  }
+
+  .icon {
+    width: 60px;
+  }
+
+  .w-temp {
     display: flex;
-    flex-flow: column;
-    //justify-content: center;
-    //align-items: center;
-    border-radius: 10px;
-    cursor: pointer;
-    //height: 92px;
-    font-size: 14px;
+    flex-direction: column;
+    justify-content: center;
+    @media screen and (min-width: 768px) {
+      //flex-direction: row;
+    }
+  }
+  .w-temp > * {
+    padding: 4px 0 4px 0px;
+    font-weight: 400;
+    font-size: 1.1rem;
+  }
+
+  .temp-max {
+    font-weight: 500;
+  }
+  &:hover {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+#currentCity {
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: white;
+  margin: 1em 0;
+}
+
+.current,
+.map {
+  height: 280px;
+  background-color: $back-dark;
+  color: white;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 1em 1.5em;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .time {
+    margin: 0;
+    margin-top: 2px;
+    font-weight: 400;
+    font-size: 12px;
     color: white;
     opacity: 0.8;
+  }
 
-    background-color: rgba(255, 255, 255, 0.05); //$item;
-    padding: 12px 37px 16px 28px;
-    transition: 0.2s;
+  .icon {
+    width: 100px;
+    margin: 0em 0;
+    padding: 0;
+  }
 
-    @media screen and (min-width: 768px) {
-    }
-    .w-temp-wrapper {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-    }
-    .w-day-name {
-      font-size: 0.9rem;
-      font-weight: 400;
-      width: 100%;
-    }
-
-    .w-icon {
-    }
-
-    .icon {
-      width: 60px;
-    }
-
-    .w-temp {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      @media screen and (min-width: 768px) {
-        //flex-direction: row;
-      }
-    }
-    .w-temp > * {
-      padding: 4px 0 4px 0px;
-      font-weight: 400;
-      font-size: 1.1rem;
-    }
-
-    .temp-max {
+  .temp__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //background-color: aquamarine;
+    #currentDescription {
+      margin-left: 2em;
+      text-transform: capitalize;
+      font-size: 1.2em;
       font-weight: 500;
     }
-    &:hover {
-      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
-      background-color: rgba(255, 255, 255, 0.1);
-    }
   }
 
-  .current {
-    background-color: $back-dark;
-    width: 50%;
-    color: white;
+  .icon__wrapper {
+    min-width: 150px;
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 1.1em 1em;
-    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
 
-    .time {
-      margin: 0;
-      margin-top: 2px;
-      font-weight: 400;
-      font-size: 12px;
-      color: white;
-      opacity: 0.8;
-    }
-
-    .icon {
+    #currentTempWrapper {
+      display: flex;
       width: 100px;
-      margin: 0em 0;
-      padding: 0;
     }
 
-    .temp__wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      //background-color: aquamarine;
-      #currentDescription {
-        margin-left: 2em;
-        text-transform: capitalize;
-        font-size: 1.2em;
-        font-weight: 500;
-      }
+    #currentTemp {
+      font-size: 4.2rem;
     }
-
-    .icon__wrapper {
-      min-width: 150px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      #currentTempWrapper {
-        display: flex;
-        width: 100px;
-      }
-
-      #currentTemp {
-        font-size: 4.2rem;
-      }
-      #degree {
-        display: inline-block;
-        margin-top: 0.5em;
-        font-size: 1.8em;
-      }
+    #degree {
+      display: inline-block;
+      margin-top: 0.5em;
+      font-size: 1.8em;
     }
   }
+}
+.map.nopad {
+  padding: 0;
 }
 
 h1.row-title {
   font-size: 0.9rem;
   font-weight: 500;
   text-transform: uppercase;
-  margin-top: 1em;
+  margin: 1em 0;
+  color: white;
 }
 
-#currentCity {
-  text-transform: capitalize;
-  font-size: 1rem;
-  margin: 1em 0;
-}
 .description {
   margin: 1em 0 2em;
 }
@@ -388,8 +403,8 @@ footer {
     }
     .fa {
       box-sizing: unset;
-      font-size: 1.5em;
-      font-weight: 800;
+      font-size: 1.3em;
+      font-weight: 500;
       width: 25px;
       height: 25px;
       display: inline-block;

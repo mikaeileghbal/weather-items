@@ -49,14 +49,14 @@ const weatherApp = (function () {
     console.log("Display: ", jsonData);
     if (jsonData) {
       let currentIcon = document.querySelector(".current-icon");
+      const paramsDew = document.getElementById("params-dew");
+      const paramsWind = document.getElementById("params-wind");
       const currentTemp = document.getElementById("currentTempWrapper");
       const currentCity = document.getElementById("currentCity");
-      const currentDescription = document.getElementById("currentDescription");
-      const paramsWind = document.getElementById("params-wind");
       const paramsHumidity = document.getElementById("params-humidity");
-      const paramsVisibility = document.getElementById("params-visibility");
       const paramsPressure = document.getElementById("params-pressure");
-      const paramsDew = document.getElementById("params-dew");
+      const paramsVisibility = document.getElementById("params-visibility");
+      const currentDescription = document.getElementById("currentDescription");
 
       const descBrief = document.getElementById("description-brief");
       descBrief.textContent = jsonData.current.weather[0].description;
@@ -67,11 +67,11 @@ const weatherApp = (function () {
         jsonData.current.temp
       )}</span><span id="degree">&deg${getUnitSymbol(unit)}</span>`;
 
+      paramsDew.textContent = jsonData.current.dew_point;
       paramsWind.textContent = jsonData.current.wind_speed;
       paramsHumidity.textContent = jsonData.current.humidity;
-      paramsVisibility.textContent = jsonData.current.visibility;
       paramsPressure.textContent = jsonData.current.pressure;
-      paramsDew.textContent = jsonData.current.dew_point;
+      paramsVisibility.textContent = jsonData.current.visibility;
 
       currentDescription.textContent = jsonData.current.weather[0].description;
       fillDailyWeatherItems(jsonData.daily);
@@ -82,37 +82,37 @@ const weatherApp = (function () {
 
   function fillDailyWeatherItems(daily) {
     const daysCount = 8;
-    dailyrow.innerHTML = "";
+    let itemFragment = new DocumentFragment();
 
     for (let i = 0; i < daysCount; i++) {
       let { min, max } = daily[i].temp;
       let { main, icon } = daily[i].weather[0];
-      let dayItem = `<div class="w-day">
-    <div class="w-day-name">
-      <span>${getDayName(today)}</span>
-    </div>
-    <div class="w-temp-wrapper">
-    <div class="w-icon">
-      <img class="icon" src="http://openweathermap.org/img/wn/${icon}@2x.png" alt="image" />
-    </div>
-    
-    <div class="w-temp">
-      <div class="temp-max">
-        <span>${Math.round(max)}&deg;</span>
-      </div>
-      <div class="temp-min">
-        <span>${Math.round(min)}&deg;</span>
-      </div>
-      </div>
-    </div>
-    <button class="slide">&gt;</button>
-    `;
-      dailyrow.innerHTML += dayItem;
+
+      const itemTemplate = document.getElementById("weather-item");
+      const item = itemTemplate.content.cloneNode(true);
+
+      const dayName = item.querySelector(".w-day-name > span");
+      console.log(dayName);
+      dayName.textContent = getDayName(today);
+
+      const iconImg = item.querySelector(".icon");
+      iconImg.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+
+      const tempMax = item.querySelector(".temp-max > span");
+      tempMax.insertAdjacentText("afterbegin", Math.round(max));
+
+      const tempMin = item.querySelector(".temp-min > span");
+      tempMin.insertAdjacentText("afterbegin", Math.round(min));
+
+      itemFragment.appendChild(item);
+
       today = today + 1;
       if (today > 6) {
         today = 0;
       }
     }
+
+    dailyrow.replaceChildren(itemFragment);
   }
 
   function getUnitSymbol(unit) {

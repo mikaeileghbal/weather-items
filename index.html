@@ -10,10 +10,32 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <title>Document</title>
+    <title>Weather</title>
   </head>
 
   <body>
+    <template id="weather-item">
+      <div class="w-day">
+        <div class="w-day-name">
+          <span></span>
+        </div>
+        <div class="w-temp-wrapper">
+          <div class="w-icon">
+            <img class="icon" src="./images/cloud.png" alt="image" />
+          </div>
+
+          <div class="w-temp">
+            <div class="temp-max">
+              <span>&deg;</span>
+            </div>
+            <div class="temp-min">
+              <span>&deg;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
     <header class="header">
       <div class="topnav">
         <div class="container maxwidth">
@@ -51,9 +73,6 @@
           </form>
           <nav id="header__nav">
             <ul class="header__nav__list">
-              <!-- <li class="header__item"><a class="link" href="">Helsinki, Uusima...</a></li>
-                        <li class="header__item"><a class="link" href="">Tomorrow</a></li>
-                        <li class="header__item"><a class="link" href="">7 Days</a></li> -->
               <li class="header__item last--item">
                 <button class="button--unit">
                   <span class="F">&deg;F</span>
@@ -68,80 +87,87 @@
     </header>
 
     <section class="main-section">
-      <div class="inner maxwidth">
+      <div class="row maxwidth">
         <span id="currentCity">City</span>
-        <div class="row current">
-          <h1 class="row-title">current weather</h1>
-          <div class="time">1:46 PM</div>
-          <div class="temp__wrapper">
-            <div class="icon__wrapper">
-              <img class="icon current-icon" src="images/sun.png" alt="image" />
-              <div id="currentTempWrapper">
-                <span id="currentTemp"></span>
-                <span id="degree"></span>
-              </div>
-            </div>
-            <span id="currentDescription"></span>
-          </div>
-          <div class="description">
-            Today we have <span id="description-brief"></span>
-          </div>
-          <div class="params">
-            <div class="params-item">
-              <span class="params-item-term">wind</span>
-              <span class="params-item-value" id="params-wind">4 mph</span>
-            </div>
-            <div class="params-item">
-              <span class="params-item-term">humidity</span>
-              <span class="params-item-value" id="params-humidity">69%</span>
-            </div>
-            <div class="params-item">
-              <span class="params-item-term">visibility</span>
-              <span class="params-item-value" id="params-visibility"
-                >3.1 mi</span
-              >
-            </div>
-            <div class="params-item">
-              <span class="params-item-term">pressure</span>
-              <span class="params-item-value" id="params-pressure"
-                >26.76 in</span
-              >
-            </div>
-            <div class="params-item">
-              <span class="params-item-term">dew point</span>
-              <span class="params-item-value" id="params-dew">43&deg;</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- weather dayli status row begins -->
-        <h1 class="row-title">10 day forecast</h1>
-        <div class="daily">
-          <!--sunday status begins-->
-          <!-- <div class="w-day">
-            <div class="w-day-name">
-              <span></span>
-            </div>
-            <div class="w-temp-wrapper">
-              <div class="w-icon">
-                <img class="icon" src="./images/cloud.png" alt="image" />
-              </div>
-
-              <div class="w-temp">
-                <div class="temp-max">
-                  <span>15&deg;</span>
-                </div>
-                <div class="temp-min">
-                  <span>10&deg;</span>
-                </div>
-              </div>
-            </div>
-          </div> -->
-          <button class="slide">&gt;</button>
-          <!-- sunday status ends-->
-        </div>
-        <!-- weather dayli status row begins -->
       </div>
+      <div class="maxwidth row">
+        <div class="col-50">
+          <div class="row current">
+            <h1 class="row-title">current weather</h1>
+            <div class="time">1:46 PM</div>
+            <div class="temp__wrapper">
+              <div class="icon__wrapper">
+                <img
+                  class="icon current-icon"
+                  src="images/sun.png"
+                  alt="image"
+                />
+                <div id="currentTempWrapper">
+                  <span id="currentTemp"></span>
+                  <span id="degree"></span>
+                </div>
+              </div>
+              <span id="currentDescription"></span>
+            </div>
+            <div class="description">
+              Today we have <span id="description-brief"></span>
+            </div>
+            <div class="params">
+              <div class="params-item">
+                <span class="params-item-term">wind</span>
+                <span class="params-item-value" id="params-wind">4 mph</span>
+              </div>
+              <div class="params-item">
+                <span class="params-item-term">humidity</span>
+                <span class="params-item-value" id="params-humidity">69%</span>
+              </div>
+              <div class="params-item">
+                <span class="params-item-term">visibility</span>
+                <span class="params-item-value" id="params-visibility"
+                  >3.1 mi</span
+                >
+              </div>
+              <div class="params-item">
+                <span class="params-item-term">pressure</span>
+                <span class="params-item-value" id="params-pressure"
+                  >26.76 in</span
+                >
+              </div>
+              <div class="params-item">
+                <span class="params-item-term">dew point</span>
+                <span class="params-item-value" id="params-dew">43&deg;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-50">
+          <div class="map nopad">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d163705.06298382883!2d8.462492205444203!3d50.12575018846449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bd096f477096c5%3A0x422435029b0c600!2sFrankfurt%2C%20Germany!5e0!3m2!1sen!2s!4v1646983489924!5m2!1sen!2s"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="daily-section">
+      <div class="maxwidth row">
+        <!-- weather dayli status row begins -->
+        <div class="col-100">
+          <h1 class="row-title">10 day forecast</h1>
+          <div class="daily">
+            <!--Weather item template -->
+
+            <!-- Weather item template -->
+          </div>
+        </div>
+      </div>
+      <!-- weather dayli status row begins -->
     </section>
 
     <footer>
