@@ -49,14 +49,15 @@ const weatherApp = (function () {
     console.log("Display: ", jsonData);
     if (jsonData) {
       let currentIcon = document.querySelector(".current-icon");
-      const paramsDew = document.getElementById("params-dew");
-      const paramsWind = document.getElementById("params-wind");
       const currentTemp = document.getElementById("currentTempWrapper");
       const currentCity = document.getElementById("currentCity");
-      const paramsHumidity = document.getElementById("params-humidity");
-      const paramsPressure = document.getElementById("params-pressure");
-      const paramsVisibility = document.getElementById("params-visibility");
       const currentDescription = document.getElementById("currentDescription");
+
+      // const paramsDew = document.getElementById("params-dew");
+      // const paramsWind = document.getElementById("params-wind");
+      // const paramsHumidity = document.getElementById("params-humidity");
+      // const paramsPressure = document.getElementById("params-pressure");
+      // const paramsVisibility = document.getElementById("params-visibility");
 
       const descBrief = document.getElementById("description-brief");
       descBrief.textContent = jsonData.current.weather[0].description;
@@ -67,17 +68,88 @@ const weatherApp = (function () {
         jsonData.current.temp
       )}</span><span id="degree">&deg${getUnitSymbol(unit)}</span>`;
 
-      paramsDew.textContent = jsonData.current.dew_point;
-      paramsWind.textContent = jsonData.current.wind_speed;
-      paramsHumidity.textContent = jsonData.current.humidity;
-      paramsPressure.textContent = jsonData.current.pressure;
-      paramsVisibility.textContent = jsonData.current.visibility;
+      document
+        .querySelector(".params")
+        .replaceChildren(fillParameters(jsonData.current));
+
+      // paramsDew.textContent = jsonData.current.dew_point;
+      // paramsWind.textContent = jsonData.current.wind_speed;
+      // paramsHumidity.textContent = jsonData.current.humidity;
+      // paramsPressure.textContent = jsonData.current.pressure;
+      // paramsVisibility.textContent = jsonData.current.visibility;
 
       currentDescription.textContent = jsonData.current.weather[0].description;
       fillDailyWeatherItems(jsonData.daily);
     } else {
       console.log("Error");
     }
+  }
+
+  function fillParameters({
+    wind_speed,
+    humidity,
+    visibility,
+    pressure,
+    dew_point,
+  }) {
+    const items = { wind_speed, humidity, visibility, pressure, dew_point };
+    const labels = {
+      wind_speed: "wind",
+      humidity: "humidity",
+      visibility: "visibility",
+      pressure: "pressure",
+      dew_point: "dew point",
+    };
+    const paramClasses = [
+      "params-item",
+      "params-item-term",
+      "params-item-value",
+    ];
+    const paramFragment = new DocumentFragment();
+
+    for (key in items) {
+      const div = document.createElement("div");
+      div.setAttribute("class", paramClasses[0]);
+
+      const term = document.createElement("span");
+      term.setAttribute("class", paramClasses[1]);
+      term.textContent = labels[key];
+      div.appendChild(term);
+
+      const value = document.createElement("span");
+      value.setAttribute("class", paramClasses[2]);
+      value.textContent = items[key];
+      div.appendChild(value);
+
+      paramFragment.appendChild(div);
+    }
+
+    return paramFragment;
+
+    //  <div class="params-item">
+    //     <span class="params-item-term">wind</span>
+    //     <span class="params-item-value" id="params-wind">4 mph</span>
+    //   </div>
+    //   <div class="params-item">
+    //     <span class="params-item-term">humidity</span>
+    //     <span class="params-item-value" id="params-humidity">69%</span>
+    //   </div>
+    //   <div class="params-item">
+    //     <span class="params-item-term">visibility</span>
+    //     <span class="params-item-value" id="params-visibility"
+    //       >3.1 mi</span
+    //     >
+    //   </div>
+    //   <div class="params-item">
+    //     <span class="params-item-term">pressure</span>
+    //     <span class="params-item-value" id="params-pressure"
+    //       >26.76 in</span
+    //     >
+    //   </div>
+    //   <div class="params-item">
+    //     <span class="params-item-term">dew point</span>
+    //     <span class="params-item-value" id="params-dew">43&deg;</span>
+    //   </div>
   }
 
   function fillDailyWeatherItems(daily) {
