@@ -1,8 +1,3 @@
-// $back: rgb(61, 77, 109);
-// $header: rgb(84, 97, 122);
-// $search: rgb(111, 122, 143);
-// $item: rgb(68, 84, 114);
-// $accent: rgb(66, 158, 194);
 $back: rgb(32, 76, 140);
 $header: rgb(50, 91, 143);
 $search: rgb(74, 111, 156);
@@ -27,59 +22,59 @@ $small-mobile-width: 360px;
 $tiny-mobile-width: 330px;
 
 @mixin transition {
-  transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 
 @mixin thirteen {
-  @media screen and (min-width: #{$thirteen-inch}) {
-    @content;
-  }
+	@media screen and (min-width: #{$thirteen-inch}) {
+		@content;
+	}
 }
 
 @mixin desktop {
-  @media screen and (min-width: #{$desktop-width}) {
-    @content;
-  }
+	@media screen and (min-width: #{$desktop-width}) {
+		@content;
+	}
 }
 
 @mixin little-desktop {
-  @media screen and (min-width: #{$little-desktop}) {
-    @content;
-  }
+	@media screen and (min-width: #{$little-desktop}) {
+		@content;
+	}
 }
 
 @mixin tablet {
-  @media screen and (min-width: #{$tablet-width}) {
-    @content;
-  }
+	@media screen and (min-width: #{$tablet-width}) {
+		@content;
+	}
 }
 
 @mixin weird-medium {
-  @media screen and (min-width: #{$weird-not-tablet-width}) {
-    @content;
-  }
+	@media screen and (min-width: #{$weird-not-tablet-width}) {
+		@content;
+	}
 }
 
 @mixin phablet {
-  @media screen and (min-width: #{$phablet-width}) {
-    @content;
-  }
+	@media screen and (min-width: #{$phablet-width}) {
+		@content;
+	}
 }
 
 @mixin mobile {
-  @media screen and (min-width: #{$mobile-width}) {
-    @content;
-  }
+	@media screen and (min-width: #{$mobile-width}) {
+		@content;
+	}
 }
 
 @mixin small-mobile {
-  @media screen and (min-width: #{$small-mobile-width}) {
-    @content;
-  }
+	@media screen and (min-width: #{$small-mobile-width}) {
+		@content;
+	}
 }
 
 @mixin tiny-mobile {
-  @media screen and (min-width: #{$tiny-mobile-width}) {
-    @content;
-  }
+	@media screen and (min-width: #{$tiny-mobile-width}) {
+		@content;
+	}
 }
